@@ -98,12 +98,14 @@ function selectPackage()
 
     
     $('#result').removeClass('display-none');
+    $('body').addClass('height-long');
 }
 
 function reset()
 {
     $('#select-package').removeClass('display-none');
     $('#result').addClass('display-none');
+    $('body').removeClass('height-long');
 }
 
 function shuffleArray(ary)
