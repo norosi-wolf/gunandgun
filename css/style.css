@@ -1,0 +1,60 @@
+@font-face {
+	font-family: 'RocknRoll One';
+	src: url(../font/RocknRollOne-Regular.ttf);
+}
+
+.display-none {
+    display:none;
+}
+
+body {
+    font-family: "RocknRoll One" ;
+    font-size: 40px;
+}
+
+main {
+    background: black;
+    color: white;
+    border-radius: 1em;
+    padding: 1em;
+    position: absolute;
+    left: 50%;
+    margin-top: 30px;
+    margin-right: -50%;
+    transform: translate(-50%, 0%)
+}
+
+button, input, select, textarea {
+    font-family : inherit;
+    font-size   : 100%;
+}
+
+
+.select-package-ok {
+    width: 200px;
+    margin:  0 auto;
+    margin-top:  30px;
+    display: block;
+}
+
+input[type=checkbox] {
+    transform: scale(2);
+    margin: 0 20px 0 0;
+    vertical-align:middle;
+}
+
+
+.result-box {
+    padding: 15px;
+    margin:  0 auto;
+    text-align: center;
+}
+.result-box-title {
+    font-size: 50px;
+}
+.result-back {
+    width: 200px;
+    margin:  0 auto;
+    margin-top:  30px;
+    display: block;
+}
