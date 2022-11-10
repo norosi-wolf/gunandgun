@@ -6,11 +6,15 @@
 .display-none {
     display:none;
 }
+.height-long {
+    min-height: 1100px;
+}
 
 body {
     font-family: "RocknRoll One" ;
     font-size: 40px;
 }
+
 
 main {
     background: black;
@@ -20,8 +24,15 @@ main {
     position: absolute;
     left: 50%;
     margin-top: 30px;
+    margin-bottom: 30px;
     margin-right: -50%;
-    transform: translate(-50%, 0%)
+    transform: translateX(-50%)
+}
+
+footer {
+    width: 100%;
+    display: block;
+    min-height: 30px;
 }
 
 button, input, select, textarea {
