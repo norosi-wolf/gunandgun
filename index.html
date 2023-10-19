@@ -21,20 +21,23 @@
 <body ontouchstart="">
 <main>
 
-    <div class="box">
+    <div class="box box-info">
         <div class="info">
             <div id="info-version">version: 1.0.0</div>
         </div>
     </div>
 
     <!-- TOP -->
-    <div id="page-top" class="page-common" style="display: none;">
+    <div id="page-top" class="page-common" style="display: '';">
         <div class="box" id="box-top">
             <div class="center">
                 <div class="box-title">TOP</div>
             </div>
             <div class="content">
                 <div class="content-inner">
+                    <div class="center"><a href="javascript:viewPage('page-setting')" class="content-event-button">Setting</a></div>
+                    <div class="center"><a href="javascript:viewPage('page-choice')" class="content-event-button">Choice</a></div>
+                    <div class="center"><a href="javascript:viewPage('page-counter')" class="content-event-button">Counter</a></div>
                 </div>
             </div>
         </div>
@@ -58,7 +61,6 @@
                 </div>
             </div>
         </div>
-        
         <div class="box" id="box-setting">
             <div class="content">
                 <div class="content-inner">
@@ -71,7 +73,6 @@
                 </div>
             </div>
         </div>
-        
         <div class="box" id="box-setting">
             <div class="content">
                 <div class="content-inner">
@@ -84,19 +85,28 @@
                 </div>
             </div>
         </div>
+        <div class="box" id="box-setting">
+            <div class="content">
+                <div class="content-inner">
+                    <div class="center">
+                        <a href="javascript:viewPage('page-top')" class="content-event-button">Back</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 
-    <!-- setup -->
-    <div id="page-setup" class="page-common" style="display: '';">
+    <!-- choice -->
+    <div id="page-choice" class="page-common" style="display: none;">
         <div class="box" id="box-setting">
             <div class="center">
-                <div class="box-title">Setup</div>
+                <div class="box-title">Choice</div>
             </div>
             <div class="content">
                 <div class="content-inner">
                     <div class="center">
-                        <div id="" class="">
+                        <div id="" class="choice-list">
                             charatser 1<br />
                             charatser 2<br />
                             charatser 3<br />
@@ -106,24 +116,53 @@
                 </div>
             </div>
         </div>
-        <div class="content">
-            <div class="content-inner">
-                <div class="center">
-                    <div id="" class="">
-                        nagun 1<br />
-                        nagun 2<br />
-                        nagun 3<br />
-                        nagun 4<br />
-                        nagun 5<br />
-                        nagun 6<br />
+        <div class="box" id="box-setting">
+            <div class="content">
+                <div class="content-inner">
+                    <div class="center">
+                        <div id="" class="choice-list">
+                            nagun 1<br />
+                            nagun 2<br />
+                            nagun 3<br />
+                            nagun 4<br />
+                            nagun 5<br />
+                            nagun 6<br />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="box" id="box-setting">
+            <div class="content">
+                <div class="content-inner">
+                    <div class="center">
+                        <a href="javascript:viewPage('page-top')" class="content-event-button">Back</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- life -->
-    <div id="page-life" class="page-common" style="display: none;">
+    <!-- counter -->
+    <div id="page-counter" class="page-common" style="display: none;">
+        <div class="box" id="box-setting">
+            <div class="center">
+                <div class="box-title">Counter</div>
+            </div>
+            <div class="content">
+                <div class="content-inner">
+                </div>
+            </div>
+        </div>
+        <div class="box" id="box-setting">
+            <div class="content">
+                <div class="content-inner">
+                    <div class="center">
+                        <a href="javascript:viewPage('page-top')" class="content-event-button">Back</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!--

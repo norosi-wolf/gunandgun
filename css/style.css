@@ -47,6 +47,10 @@ main {
     margin-bottom: 7vw;
 }
 
+.box-info {
+    margin-bottom: 0vw;
+}
+
 .row {
     width: 100%;
     height: 100%;
@@ -141,6 +145,7 @@ main {
 	text-decoration: none;
 	width: 40vw;
 	margin: 0 auto;
+    margin-top: 2vw;
 	padding: 0vw 1vw;
 	font-weight: bold;
 	border: 0.5vw solid #27acd9;
@@ -235,11 +240,16 @@ input[type="checkbox"] {
     top: 0vw;
 }
 .select-list {
-    font-size: 4vw;
+    font-size: 5vw;
 }
 .select-list-item {
     display: inline-block;
     width: 40vw;
+}
+
+
+.choice-list {
+    font-size: 5vw;
 }
 
 

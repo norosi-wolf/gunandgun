@@ -53,6 +53,13 @@ var NgList = {
     naguns: [],
 };
 
+var CounterData = {
+    player1: 0,
+    player2: 0,
+    playerBurn1: 0,
+    playerBurn2: 0,
+};
+
 /**
  * 
  */
@@ -111,21 +118,36 @@ function createSetting()
  */
 function selectPackage(id)
 {
-}
+};
 
 /**
  * 
  */
 function selectCharacter(id)
 {
-}
+};
 
 /**
  * 
  */
 function selectNagun(id)
 {
-}
+};
+
+/**
+ * 
+ */
+function updateChoice()
+{
+};
+
+/**
+ * 
+ */
+function updateCounter(id, value)
+{
+};
+
 
 
 /*
