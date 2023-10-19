@@ -2,17 +2,129 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
     <title>Gunnagun</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0">
     <link rel="stylesheet" href="./css/sanitize.css">
+    <link rel="stylesheet" href="./css/all.min.css">
     <link rel="stylesheet" href="./css/style.css">
     <script src="./js/jquery-3.6.0.slim.min.js"></script>
     <script src="./js/app.js"></script>
+    
+    <script>
+        window.onload = function(){
+            initialize();
+        };
+    </script>
 </head>
 
-<body>
+<body ontouchstart="">
 <main>
 
+    <div class="box">
+        <div class="info">
+            <div id="info-version">version: 1.0.0</div>
+        </div>
+    </div>
+
+    <!-- TOP -->
+    <div id="page-top" style="display: none;">
+        <div class="box" id="box-top">
+            <div class="center">
+                <div class="box-title">TOP</div>
+            </div>
+            <div class="content">
+                <div class="content-inner">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- setting -->
+    <div id="page-setting" style="display: none;">
+        <div class="box" id="box-setting">
+            <div class="center">
+                <div class="box-title">Setting</div>
+            </div>
+            <div class="content">
+                <div class="content-inner">
+                    <div class="center">
+                        <div id="package-select" class="package-select">
+                            <input class="input-checkbox select-package-checkbox" type="checkbox" checked><label for="package-name">Normal</label><br >
+                            <input class="input-checkbox select-package-checkbox" type="checkbox" checked><label for="package-name">Overheat</label><br >
+                            <input class="input-checkbox select-package-checkbox" type="checkbox" checked><label for="package-name">W Shout</label><br >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="box" id="box-setting">
+            <div class="content">
+                <div class="content-inner">
+                    <div class="center">
+                        <div id="character-select" class="select-list">
+                            <div class="select-list-item"><input class="input-checkbox select-package-checkbox" type="checkbox" checked><label for="package-name">Normal</label></div>
+                            <div class="select-list-item"><input class="input-checkbox select-package-checkbox" type="checkbox" checked><label for="package-name">Overheat</label></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="box" id="box-setting">
+            <div class="content">
+                <div class="content-inner">
+                    <div class="center">
+                        <div id="nagun-select" class="select-list">
+                            <div class="select-list-item"><input class="input-checkbox select-package-checkbox" type="checkbox" checked><label for="package-name">Normal</label></div>
+                            <div class="select-list-item"><input class="input-checkbox select-package-checkbox" type="checkbox" checked><label for="package-name">Overheat</label></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- setup -->
+    <div id="page-setup" style="display: '';">
+        <div class="box" id="box-setting">
+            <div class="center">
+                <div class="box-title">Setup</div>
+            </div>
+            <div class="content">
+                <div class="content-inner">
+                    <div class="center">
+                        <div id="" class="">
+                            charatser 1<br />
+                            charatser 2<br />
+                            charatser 3<br />
+                            charatser 4<br />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="content-inner">
+                <div class="center">
+                    <div id="" class="">
+                        charatser 1<br />
+                        charatser 2<br />
+                        charatser 3<br />
+                        charatser 4<br />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- life -->
+    <div id="page-life" style="display: none;">
+    </div>
+
+    <!--
     <div id="select-package">
         <div class="select-package-checkbox-list">
             <input class="input-checkbox select-package-checkbox" type="checkbox" id="gg-01" name="normal" checked><label for="package-name">Normal</label><br >
@@ -43,6 +155,7 @@
 
         <button class="result-back" id="result-back" onclick="reset()">Back</button>
     </div>
+    -->
 
 </main>
 </body>

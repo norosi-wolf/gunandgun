@@ -1,36 +1,126 @@
 
+class GunPackage {
+    static NORMAL = 'NORMAL';
+    static OVERHEAT = 'OVERHEAT';
+    static WSHOUT = 'WSHOUT';
+};
+
+class GunType {
+    static LIGHT = 'LIGHT';
+    static HEAVY = 'HEAVY';
+    static SPECIAL = 'SPECIAL';
+};
+
+const PACKAGE_LIST = [
+    {id:1, name:"Nomarl", package:GunPackage.NORMAL},
+    {id:2, name:"Overheat", package:GunPackage.OVERHEAT},
+    {id:3, name:"W Shout", package:GunPackage.WSHOUT},
+];
+
 const CHARACTER_LIST = [
-    {name:"ヒバナ", package:"normal"},
-    {name:"ナトリ", package:"normal"},
-    {name:"ラン", package:"normal"},
-    {name:"キルコ", package:"normal"},
-    {name:"アマタ", package:"overheat"},
-    {name:"マカ", package:"overheat"},
-    {name:"ナナネ", package:"wshout"},
-    {name:"テトラ", package:"wshout"},
-    {name:"エコ", package:"wshout"},
-    {name:"アハト", package:"wshout"},
+    {id:1, name:"ヒバナ", package:GunPackage.NORMAL},
+    {id:2, name:"ナトリ", package:GunPackage.NORMAL},
+    {id:3, name:"ラン", package:GunPackage.NORMAL},
+    {id:4, name:"キルコ", package:GunPackage.NORMAL},
+    {id:5, name:"アマタ", package:GunPackage.OVERHEAT},
+    {id:6, name:"マカ", package:GunPackage.OVERHEAT},
+    {id:7, name:"ナナネ", package:GunPackage.WSHOUT},
+    {id:8, name:"テトラ", package:GunPackage.WSHOUT},
+    {id:9, name:"エコ", package:GunPackage.WSHOUT},
+    {id:10, name:"アハト", package:GunPackage.WSHOUT},
 ];
 
 const NAGUN_LIST = [
-    {name:"エンラ", package:"normal", type:"light"},
-    {name:"ヌエ", package:"normal", type:"heavy"},
-    {name:"ダタラ", package:"normal", type:"special"},
-    {name:"カサネ", package:"normal", type:"light"},
-    {name:"ハクメン", package:"normal", type:"heavy"},
-    {name:"ウワン", package:"normal", type:"special"},
-    {name:"ドドメ", package:"overheat", type:"light"},
-    {name:"キヨヒメ", package:"overheat", type:"heavy"},
-    {name:"ツエツキ", package:"overheat", type:"special"},
-    {name:"ヒカギリ", package:"wshout", type:"light"},
-    {name:"ロクロ", package:"wshout", type:"light"},
-    {name:"ダイダラ", package:"wshout", type:"heavy"},
-    {name:"モウリョウ", package:"wshout", type:"heavy"},
-    {name:"バク", package:"wshout", type:"special"},
-    {name:"コダマ", package:"wshout", type:"special"},
+    {id:1, name:"エンラ", package:GunPackage.NORMAL, type:GunType.LIGHT},
+    {id:2, name:"ヌエ", package:GunPackage.NORMAL, type:GunType.HEAVY},
+    {id:3, name:"ダタラ", package:GunPackage.NORMAL, type:GunType.SPECIAL},
+    {id:4, name:"カサネ", package:GunPackage.NORMAL, type:GunType.LIGHT},
+    {id:5, name:"ハクメン", package:GunPackage.NORMAL, type:GunType.HEAVY},
+    {id:6, name:"ウワン", package:GunPackage.NORMAL, type:GunType.SPECIAL},
+    {id:7, name:"ドドメ", package:GunPackage.OVERHEAT, type:GunType.LIGHT},
+    {id:8, name:"キヨヒメ", package:GunPackage.OVERHEAT, type:GunType.HEAVY},
+    {id:9, name:"ツエツキ", package:GunPackage.OVERHEAT, type:GunType.SPECIAL},
+    {id:10, name:"ヒカギリ", package:GunPackage.WSHOUT, type:GunType.LIGHT},
+    {id:11, name:"ロクロ", package:GunPackage.WSHOUT, type:GunType.LIGHT},
+    {id:12, name:"ダイダラ", package:GunPackage.WSHOUT, type:GunType.HEAVY},
+    {id:13, name:"モウリョウ", package:GunPackage.WSHOUT, type:GunType.HEAVY},
+    {id:14, name:"バク", package:GunPackage.WSHOUT, type:GunType.SPECIAL},
+    {id:15, name:"コダマ", package:GunPackage.WSHOUT, type:GunType.SPECIAL},
 ];
 
+var NgList = {
+    characters: [],
+    naguns: [],
+};
 
+/**
+ * 
+ */
+function initialize()
+{
+    createSetting();
+};
+
+
+/**
+ * 
+ */
+function createSetting()
+{
+    let html = "";
+    let item;
+    for (let i = 0; i < PACKAGE_LIST.length; i++)
+    {
+        item = PACKAGE_LIST[i];
+        html += `<input id="checkbox-package-${item.id}" class="input-checkbox select-package-checkbox" type="checkbox" checked>`;
+        html += `<label id="package-${item.id}" for="checkbox-package-${item.id}">${item.name}</label><br >`;
+    }
+    $('#package-select').html(html);
+    
+    html = "";
+    for (let i = 0; i < CHARACTER_LIST.length; i++)
+    {
+        item = CHARACTER_LIST[i];
+        html += `<div class="select-list-item"><input id="checkbox-character-${item.id}" class="input-checkbox select-package-checkbox" type="checkbox" checked>`;
+        html += `<label id="character-${item.id}" class="package-${item.package}" for="checkbox-character-${item.id}">${item.name}</label></div>`;
+        if (i % 2 == 1) html += "<br />";
+    }
+    $('#character-select').html(html);
+    
+    html = "";
+    for (let i = 0; i < NAGUN_LIST.length; i++)
+    {
+        item = NAGUN_LIST[i];
+        html += `<div class="select-list-item"><input id="checkbox-nagun-${item.id}" class="input-checkbox select-package-checkbox" type="checkbox" checked>`;
+        html += `<label id="character-${item.id}" class="package-${item.package}" for="checkbox-nagun-${item.id}">${item.name}</label></div>`;
+        if (i % 2 == 1) html += "<br />";
+    }
+    $('#nagun-select').html(html);
+};
+
+/**
+ * 
+ */
+function selectPackage(id)
+{
+}
+
+/**
+ * 
+ */
+function selectCharacter(id)
+{
+}
+
+/**
+ * 
+ */
+function selectNagun(id)
+{
+}
+
+
+/*
 function selectPackage()
 {
     $('#select-package').addClass('display-none');
@@ -116,4 +206,4 @@ function shuffleArray(ary)
     }
     return ary;
 }
-
+*/
