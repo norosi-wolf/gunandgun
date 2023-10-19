@@ -61,6 +61,14 @@ function initialize()
     createSetting();
 };
 
+/**
+ * 
+ */
+function viewPage(id)
+{
+    $('.page-common').hide();
+    $(`#${id}`).show();
+};
 
 /**
  * 
