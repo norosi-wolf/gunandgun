@@ -370,6 +370,8 @@ input[type="checkbox"] {
     margin-left: 1vw;
     margin-right: 1vw;
     font-size: 8vw;
+    width: 12vw;
+    text-align: center;
 }
 .fa-heart, .fa-fire{
     margin: auto 0;
@@ -435,6 +437,7 @@ input[type="checkbox"] {
     height: 20vw;
 }
 .modal-confirm .content-event-button {
+    font-size: 4vw;
     width: 24vw;
 }
 .no_scroll {

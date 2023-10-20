@@ -57,19 +57,24 @@ var NgList = {
     naguns: [],
 };
 
-var CounterData = {
-    player1: 0,
-    player2: 0,
-    playerBurn1: 0,
-    playerBurn2: 0,
+var LifeData = {
+    p1: {
+        life: 20,
+        burn: 20,
+    },
+    p2: {
+        life: 20,
+        burn: 20,
+    }
 };
 
 /**
  * 
  */
-function initialize()
+function initialize(firstPage)
 {
     createSetting();
+    viewPage(firstPage);
 };
 
 
@@ -312,9 +317,31 @@ function updateLottery()
 /**
  * 
  */
-function updateCounter(id, value)
+function updateCounter(id, param, value)
 {
+    LifeData[id][param] += value;
+    if (LifeData[id][param] < 0) LifeData[id][param] = 0;
+    if (99 < LifeData[id][param]) LifeData[id][param] = 99;
+    $(`#${id}-${param}-value`).text(LifeData[id][param]);
 };
+
+/**
+ * 
+ */
+function resetLifeCounter()
+{
+    LifeData.p1.life = 20;
+    LifeData.p1.burn = 0;
+    LifeData.p2.life = 20;
+    LifeData.p2.burn = 0;
+
+    $('#p1-life-value').text(LifeData.p1.life);
+    $('#p1-burn-value').text(LifeData.p1.burn);
+    $('#p2-life-value').text(LifeData.p2.life);
+    $('#p2-burn-value').text(LifeData.p2.burn);
+
+    closeModal('modal-reset');
+}
 
 /**
  * 
@@ -345,4 +372,24 @@ function shuffleArray(array)
         [array[k], array[i - 1]] = [array[i - 1], array[k]];
     }
     return array;
+};
+
+/**
+ * 
+ */
+function openModal(id)
+{
+    $(`#${id}`).show();
+    $('html').css('overflow-y', 'hidden');
+    forbidScroll();
+};
+
+/**
+ * 
+ */
+function closeModal(id)
+{
+    $(`#${id}`).hide();
+    $('html').css('overflow-y', '');
+    allowScroll();
 };
