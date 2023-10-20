@@ -60,11 +60,11 @@ var NgList = {
 var LifeData = {
     p1: {
         life: 20,
-        burn: 20,
+        burn: 0,
     },
     p2: {
         life: 20,
-        burn: 20,
+        burn: 0,
     }
 };
 
