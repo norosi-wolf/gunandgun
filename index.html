@@ -13,7 +13,7 @@
     
     <script>
         window.onload = function(){
-            initialize();
+            initialize('page-life-counter');
         };
     </script>
 </head>
@@ -177,15 +177,56 @@
 
     <!-- page-life-counter -->
     <div id="page-life-counter" class="page-common" style="display: none;">
+        
         <div class="box" id="box-setting">
             <div class="center">
                 <div class="box-title">Life Counter</div>
             </div>
-            <div class="content">
+            <div class="content content-life-counter">
                 <div class="content-inner">
+                    <div class="left">
+                        <div class="content-counter">
+                            <div class="content-counter-inner">
+                                <div class="life-counter-player"><i class="fa-solid fa-user"></i></div>
+                                <div>
+                                    <div class="life-counter life-counter-left">
+                                        <a href="javascript:void(0)" class="life-counter-button"><i class="fa-solid fa-minus"></i></a>
+                                        <i class="fa-solid fa-heart"></i><div id="player-life-value1" class="player-life-value">00</div>
+                                        <a href="javascript:void(0)" class="life-counter-button"><i class="fa-solid fa-plus"></i></a>
+                                    </div>
+                                    <div class="life-counter life-counter-left">
+                                        <a href="javascript:void(0)" class="life-counter-button"><i class="fa-solid fa-minus"></i></a>
+                                        <i class="fa-solid fa-fire"></i></i><div id="player-life-value1" class="player-life-value">00</div>
+                                        <a href="javascript:void(0)" class="life-counter-button"><i class="fa-solid fa-plus"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="right">
+                        <div class="content-counter">
+                            <div class="content-counter-inner">
+                                <div>
+                                    <div class="life-counter life-counter-right">
+                                        <a href="javascript:void(0)" class="life-counter-button"><i class="fa-solid fa-plus"></i></a>
+                                        <div id="player-life-value2" class="player-life-value">00</div><i class="fa-solid fa-heart"></i>
+                                        <a href="javascript:void(0)" class="life-counter-button"><i class="fa-solid fa-minus"></i></a>
+                                    </div>
+                                    <div class="life-counter life-counter-right">
+                                        <a href="javascript:void(0)" class="life-counter-button"><i class="fa-solid fa-plus"></i></a>
+                                        <div id="player-life-value2" class="player-life-value">00</div><i class="fa-solid fa-fire"></i>
+                                        <a href="javascript:void(0)" class="life-counter-button"><i class="fa-solid fa-minus"></i></a>
+                                    </div>
+                                </div>
+                                <div class="life-counter-player"><i class="fa-solid fa-user"></i></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+
         <div class="box" id="box-setting">
             <div class="content">
                 <div class="content-inner">

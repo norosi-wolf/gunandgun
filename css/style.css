@@ -283,7 +283,120 @@ input[type="checkbox"] {
     padding-bottom: 7vw;
 }
 
+.left, .right {
+    margin-top: 4vw;
+    margin-bottom: 4vw;
+}
+.left {
+    text-align: left;
+    color: rgb(206, 123, 15);
+    border-bottom: 1vw solid rgb(206, 123, 15);
+}
+.right {
+    color: rgb(32, 32, 163);
+    border-bottom: 1vw solid rgb(32, 32, 163);
+    text-align: right;
+}
 
+.left .content-counter-inner {
+    margin: auto;
+    display: flex;
+    align-items: left;
+    justify-content: left;
+}
+
+.right .content-counter-inner {
+    margin: auto;
+    display: flex;
+    align-items: right;
+    justify-content: right;
+}
+
+.content-life-counter {
+    padding-left: 2vw;
+    padding-right: 2vw;
+}
+
+.life-counter-player {
+    font-size: 10vw;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: auto 0;
+}
+
+.left .life-counter-player {
+    padding-left: 1vw;
+    padding-right: 2vw;
+}
+
+.right .life-counter-player {
+    padding-left: 2vw;
+    padding-right: 1vw;
+}
+
+
+
+.life-counter-left {
+    text-align: left;
+    align-items: left;
+    justify-content: left;
+}
+.life-counter-right {
+    text-align: right;
+    align-items: right;
+    justify-content: right;
+}
+.fa-plus, .fa-minus {
+    margin-top: 1vw;
+}
+.life-counter-button {
+	display: block;
+	text-align: center;
+	text-decoration: none;
+	padding: 0vw 1.5vw;
+	border: 0.5vw solid #27acd9;
+	color: #27acd9;
+	border-radius: 100vw;
+	transition: 0.5s;
+    font-size: 5vw;
+    margin: auto 0;
+}
+.life-counter-button:active  {
+	color: #fff;
+	background: #27acd9;
+}
+.player-life-value {
+    margin-left: 1vw;
+    margin-right: 1vw;
+    font-size: 8vw;
+}
+.fa-heart, .fa-fire{
+    margin: auto 0;
+    width: 5vw;
+	text-align: center;
+}
+.left .fa-heart, .left .fa-fire{
+    margin-left: 1vw;
+}
+.right .fa-heart, .right .fa-fire{
+    margin-right: 1vw;
+}
+
+.left .fa-user {
+    color: rgb(206, 123, 15);
+}
+
+.right .fa-user {
+    color: rgb(32, 32, 163);
+}
+
+.life-counter {
+    font-size: 5vw;
+    display: flex;
+    width: 40vw;
+    margin: auto;
+}
 
 .info {
     font-size: 2vw;
