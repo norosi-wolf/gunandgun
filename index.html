@@ -27,17 +27,17 @@
         </div>
     </div>
 
-    <!-- TOP -->
-    <div id="page-top" class="page-common" style="display: '';">
-        <div class="box" id="box-top">
+    <!-- Menu -->
+    <div id="page-menu" class="page-common" style="display: '';">
+        <div class="box" id="box-menu">
             <div class="center">
-                <div class="box-title">TOP</div>
+                <div class="box-title">Menu</div>
             </div>
             <div class="content">
                 <div class="content-inner">
                     <div class="center"><a href="javascript:viewPage('page-setting')" class="content-event-button">Setting</a></div>
-                    <div class="center"><a href="javascript:viewPage('page-choice')" class="content-event-button">Choice</a></div>
-                    <div class="center"><a href="javascript:viewPage('page-counter')" class="content-event-button">Counter</a></div>
+                    <div class="center"><a href="javascript:viewPage('page-lottery')" class="content-event-button">Lottery</a></div>
+                    <div class="center"><a href="javascript:viewPage('page-life-counter')" class="content-event-button">Life Counter</a></div>
                 </div>
             </div>
         </div>
@@ -52,10 +52,46 @@
             <div class="content">
                 <div class="content-inner">
                     <div class="center">
-                        <div id="package-select" class="package-select">
-                            <input class="input-checkbox select-package-checkbox" type="checkbox" checked><label for="package-name">Normal</label><br >
-                            <input class="input-checkbox select-package-checkbox" type="checkbox" checked><label for="package-name">Overheat</label><br >
-                            <input class="input-checkbox select-package-checkbox" type="checkbox" checked><label for="package-name">W Shout</label><br >
+                        <div>
+                            <div class="lottery-nagun-title"><i class="fa-solid fa-box title-icon"></i></i>Package</div>
+                            <div class="center">
+                                <div id="package-select" class="package-select">
+                                    <input name="setting-pkg-select1" class="input-checkbox select-package-checkbox" type="checkbox" checked><label for="package-name">Normal</label><br >
+                                    <input id="setting-pkg-select2" class="input-checkbox select-package-checkbox" type="checkbox" checked><label for="package-name">Overheat</label><br >
+                                    <input id="setting-pkg-select3" class="input-checkbox select-package-checkbox" type="checkbox" checked><label for="package-name">W Shout</label><br >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="box" id="box-setting">
+            <div class="content content-setting">
+                <div class="content-inner">
+                    <div class="center">
+                        <div>
+                            <div class="lottery-nagun-title"><i class="fa-solid fa-user title-icon"></i>Character</div>
+                            <div id="character-select" class="select-list">
+                                <div class="select-list-item"><input class="input-checkbox select-package-checkbox" type="checkbox" checked><label for="package-name">Normal</label></div>
+                                <div class="select-list-item"><input class="input-checkbox select-package-checkbox" type="checkbox" checked><label for="package-name">Overheat</label></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="box" id="box-setting">
+            <div class="content content-setting">
+                <div class="content-inner">
+                    <div class="center">
+                        <div>
+                            <div class="setting-nagun-title"><i class="fa-solid fa-gun title-icon"></i>Light</div>
+                            <div id="setting-nagun-light" class="select-list"></div>
+                            <div class="setting-nagun-title"><i class="fa-solid fa-gun title-icon"></i>Heavy</div>
+                            <div id="setting-nagun-heavy" class="select-list"></div>
+                            <div class="setting-nagun-title"><i class="fa-solid fa-gun title-icon"></i>Special</div>
+                            <div id="setting-nagun-special" class="select-list"></div>
                         </div>
                     </div>
                 </div>
@@ -65,31 +101,8 @@
             <div class="content">
                 <div class="content-inner">
                     <div class="center">
-                        <div id="character-select" class="select-list">
-                            <div class="select-list-item"><input class="input-checkbox select-package-checkbox" type="checkbox" checked><label for="package-name">Normal</label></div>
-                            <div class="select-list-item"><input class="input-checkbox select-package-checkbox" type="checkbox" checked><label for="package-name">Overheat</label></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="box" id="box-setting">
-            <div class="content">
-                <div class="content-inner">
-                    <div class="center">
-                        <div id="nagun-select" class="select-list">
-                            <div class="select-list-item"><input class="input-checkbox select-package-checkbox" type="checkbox" checked><label for="package-name">Normal</label></div>
-                            <div class="select-list-item"><input class="input-checkbox select-package-checkbox" type="checkbox" checked><label for="package-name">Overheat</label></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="box" id="box-setting">
-            <div class="content">
-                <div class="content-inner">
-                    <div class="center">
-                        <a href="javascript:viewPage('page-top')" class="content-event-button">Back</a>
+                        <a href="javascript:viewPage('page-menu')" class="content-event-button">Menu</a>
+                        <a href="javascript:viewPage('page-lottery')" class="content-event-button">Lottery</a>
                     </div>
                 </div>
             </div>
@@ -97,20 +110,48 @@
     </div>
 
 
-    <!-- choice -->
-    <div id="page-choice" class="page-common" style="display: none;">
+    <!-- lottery -->
+    <div id="page-lottery" class="page-common" style="display: none;">
         <div class="box" id="box-setting">
             <div class="center">
-                <div class="box-title">Choice</div>
+                <div class="box-title">Lottery</div>
             </div>
-            <div class="content">
+            <div class="content content-lottery">
                 <div class="content-inner">
                     <div class="center">
-                        <div id="" class="choice-list">
-                            charatser 1<br />
-                            charatser 2<br />
-                            charatser 3<br />
-                            charatser 4<br />
+                        <div>
+                            <div class="lottery-nagun-title"><i class="fa-solid fa-user title-icon"></i>Character</div>
+                            <div id="lottery-charatcer-list" class="lottery-list">
+                                <div class="lottery-charatcer">-----</div>
+                                <div class="lottery-charatcer">-----</div>
+                                <div class="lottery-charatcer">-----</div>
+                                <div class="lottery-charatcer">-----</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="box" id="box-setting">
+            <div class="content content-lottery">
+                <div class="content-inner">
+                    <div class="center">
+                        <div id="lottery-nagun-list" class="lottery-list">
+                            <div class="lottery-nagun-title"><i class="fa-solid fa-gun title-icon"></i>Light</div>
+                            <div id="lottery-light" class="center">
+                                <div class="lottery-nagun">-----</div>
+                                <div class="lottery-nagun">-----</div>
+                            </div>
+                            <div class="lottery-nagun-title"><i class="fa-solid fa-gun title-icon"></i>Heavy</div>
+                            <div id="lottery-heavy" class="center">
+                                <div class="lottery-nagun">-----</div>
+                                <div class="lottery-nagun">-----</div>
+                            </div>
+                            <div class="lottery-nagun-title"><i class="fa-solid fa-gun title-icon"></i>Special</div>
+                            <div id="lottery-special" class="center">
+                                <div class="lottery-nagun">-----</div>
+                                <div class="lottery-nagun">-----</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -120,34 +161,25 @@
             <div class="content">
                 <div class="content-inner">
                     <div class="center">
-                        <div id="" class="choice-list">
-                            nagun 1<br />
-                            nagun 2<br />
-                            nagun 3<br />
-                            nagun 4<br />
-                            nagun 5<br />
-                            nagun 6<br />
-                        </div>
+                        <a href="javascript:updateLottery()" class="content-event-button"><i class="fa-solid fa-arrows-rotate"></i></a>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="box" id="box-setting">
-            <div class="content">
-                <div class="content-inner">
                     <div class="center">
-                        <a href="javascript:viewPage('page-top')" class="content-event-button">Back</a>
+                        <a href="javascript:viewPage('page-menu')" class="content-event-button">Menu</a>
+                        <a href="javascript:viewPage('page-setting')" class="content-event-button">Setting</a>
+                    </div>
+                    <div class="center">
+                        <a href="javascript:viewPage('page-life-counter')" class="content-event-button">Life Counter</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- counter -->
-    <div id="page-counter" class="page-common" style="display: none;">
+    <!-- page-life-counter -->
+    <div id="page-life-counter" class="page-common" style="display: none;">
         <div class="box" id="box-setting">
             <div class="center">
-                <div class="box-title">Counter</div>
+                <div class="box-title">Life Counter</div>
             </div>
             <div class="content">
                 <div class="content-inner">
@@ -158,7 +190,7 @@
             <div class="content">
                 <div class="content-inner">
                     <div class="center">
-                        <a href="javascript:viewPage('page-top')" class="content-event-button">Back</a>
+                        <a href="javascript:viewPage('page-menu')" class="content-event-button">Menu</a>
                     </div>
                 </div>
             </div>

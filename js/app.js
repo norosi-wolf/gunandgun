@@ -12,9 +12,9 @@ class GunType {
 };
 
 const PACKAGE_LIST = [
-    {id:1, name:"Nomarl", package:GunPackage.NORMAL},
-    {id:2, name:"Overheat", package:GunPackage.OVERHEAT},
-    {id:3, name:"W Shout", package:GunPackage.WSHOUT},
+    {id:1, name:"Nomarl", type:GunPackage.NORMAL},
+    {id:2, name:"Overheat", type:GunPackage.OVERHEAT},
+    {id:3, name:"W Shout", type:GunPackage.WSHOUT},
 ];
 
 const CHARACTER_LIST = [
@@ -48,6 +48,10 @@ const NAGUN_LIST = [
     {id:15, name:"コダマ", package:GunPackage.WSHOUT, type:GunType.SPECIAL},
 ];
 
+var Page = {
+    current: "",
+};
+
 var NgList = {
     characters: [],
     naguns: [],
@@ -68,6 +72,8 @@ function initialize()
     createSetting();
 };
 
+
+
 /**
  * 
  */
@@ -75,6 +81,18 @@ function viewPage(id)
 {
     $('.page-common').hide();
     $(`#${id}`).show();
+
+    switch (Page.current)
+    {
+        case 'page-setting': saveSetting(); break;
+    }
+
+    switch (id)
+    {
+        case 'page-lottery': updateLottery(); break;
+    }
+    
+    Page.current = id;
 };
 
 /**
@@ -101,44 +119,194 @@ function createSetting()
         if (i % 2 == 1) html += "<br />";
     }
     $('#character-select').html(html);
-    
-    html = "";
+
+
+
+    let nagunLightList = [];
+    let nagunHeavyList = [];
+    let nagunSpecialList = [];
     for (let i = 0; i < NAGUN_LIST.length; i++)
     {
-        item = NAGUN_LIST[i];
+        switch (NAGUN_LIST[i].type)
+        {
+            case GunType.LIGHT: nagunLightList.push(NAGUN_LIST[i]); break;
+            case GunType.HEAVY: nagunHeavyList.push(NAGUN_LIST[i]); break;
+            case GunType.SPECIAL: nagunSpecialList.push(NAGUN_LIST[i]); break;
+        }
+    }
+    
+    html = "";
+    for (let i = 0; i < nagunLightList.length; i++)
+    {
+        item = nagunLightList[i];
         html += `<div class="select-list-item"><input id="checkbox-nagun-${item.id}" class="input-checkbox select-package-checkbox" type="checkbox" checked>`;
         html += `<label id="character-${item.id}" class="package-${item.package}" for="checkbox-nagun-${item.id}">${item.name}</label></div>`;
         if (i % 2 == 1) html += "<br />";
     }
-    $('#nagun-select').html(html);
+    $('#setting-nagun-light').html(html);
+    
+    html = "";
+    for (let i = 0; i < nagunHeavyList.length; i++)
+    {
+        item = nagunHeavyList[i];
+        html += `<div class="select-list-item"><input id="checkbox-nagun-${item.id}" class="input-checkbox select-package-checkbox" type="checkbox" checked>`;
+        html += `<label id="character-${item.id}" class="package-${item.package}" for="checkbox-nagun-${item.id}">${item.name}</label></div>`;
+        if (i % 2 == 1) html += "<br />";
+    }
+    $('#setting-nagun-heavy').html(html);
+    
+    html = "";
+    for (let i = 0; i < nagunSpecialList.length; i++)
+    {
+        item = nagunSpecialList[i];
+        html += `<div class="select-list-item"><input id="checkbox-nagun-${item.id}" class="input-checkbox select-package-checkbox" type="checkbox" checked>`;
+        html += `<label id="character-${item.id}" class="package-${item.package}" for="checkbox-nagun-${item.id}">${item.name}</label></div>`;
+        if (i % 2 == 1) html += "<br />";
+    }
+    $('#setting-nagun-special').html(html);
+
+    //
+    for (let i = 0; i < PACKAGE_LIST.length; i++)
+    {
+        item = PACKAGE_LIST[i];
+        $(`#checkbox-package-${item.id}`).change(function(){
+            selectPackage($(this));
+        });
+    }
 };
 
 /**
  * 
  */
-function selectPackage(id)
+function selectPackage(elm)
 {
+    let id = elm[0].id.replace('checkbox-package-', '');
+    let package = getPackage(id);
+    let checked = elm.prop('checked')
+
+    for (let i = 0; i < CHARACTER_LIST.length; i++)
+    {
+        if (CHARACTER_LIST[i].package == package.type)
+        {
+            $(`#checkbox-character-${CHARACTER_LIST[i].id}`).prop('checked', checked);
+        }
+    }
+    for (let i = 0; i < NAGUN_LIST.length; i++)
+    {
+        if (NAGUN_LIST[i].package == package.type)
+        {
+            $(`#checkbox-nagun-${NAGUN_LIST[i].id}`).prop('checked', checked);
+        }
+    }
 };
 
 /**
  * 
  */
-function selectCharacter(id)
+function saveSetting()
 {
-};
+    NgList.characters = [];
+    NgList.naguns = [];
+
+    for (let i = 0; i < CHARACTER_LIST.length; i++)
+    {
+        if ($(`#checkbox-character-${CHARACTER_LIST[i].id}`).prop('checked') == false)
+        {
+            NgList.characters.push(CHARACTER_LIST[i].id);
+        }
+    }
+    for (let i = 0; i < NAGUN_LIST.length; i++)
+    {
+        if ($(`#checkbox-nagun-${NAGUN_LIST[i].id}`).prop('checked') == false)
+        {
+            NgList.naguns.push(NAGUN_LIST[i].id);
+        }
+    }
+}
 
 /**
  * 
  */
-function selectNagun(id)
+function updateLottery()
 {
-};
+    let characterList = [];
+    let nagunLightList = [];
+    let nagunHeavyList = [];
+    let nagunSpecialList = [];
 
-/**
- * 
- */
-function updateChoice()
-{
+    for (let i = 0; i < CHARACTER_LIST.length; i++)
+    {
+        if (NgList.characters.includes(CHARACTER_LIST[i].id) == false)
+        {
+            characterList.push(CHARACTER_LIST[i]);
+        }
+    }
+    for (let i = 0; i < NAGUN_LIST.length; i++)
+    {
+        if (NgList.naguns.includes(NAGUN_LIST[i].id) == false)
+        {
+            switch (NAGUN_LIST[i].type)
+            {
+                case GunType.LIGHT: nagunLightList.push(NAGUN_LIST[i]); break;
+                case GunType.HEAVY: nagunHeavyList.push(NAGUN_LIST[i]); break;
+                case GunType.SPECIAL: nagunSpecialList.push(NAGUN_LIST[i]); break;
+            }
+        }
+    }
+
+    characterList = shuffleArray(characterList);
+    nagunLightList = shuffleArray(nagunLightList);
+    nagunHeavyList = shuffleArray(nagunHeavyList);
+    nagunSpecialList = shuffleArray(nagunSpecialList);
+
+    let html = "";
+    for (let i = 0; i < 4; i++)
+    {
+        if (characterList.length <= i)
+        {
+            break;
+        }
+        html += `<div class="lottery-charatcer lottery-list-item">${characterList[i].name}</div>`
+
+        if (i % 2 == 1)
+        {
+            html += "<br />";
+        }
+    }
+    $('#lottery-charatcer-list').html(html);
+
+    html = "";
+    for (let i = 0; i < 2; i++)
+    {
+        if (nagunLightList.length <= i)
+        {
+            break;
+        }
+        html += `<div class="lottery-nagun lottery-list-item">${nagunLightList[i].name}</div>`
+    }
+    $('#lottery-light').html(html);
+    
+    html = "";
+    for (let i = 0; i < 2; i++)
+    {
+        if (nagunHeavyList.length <= i)
+        {
+            break;
+        }
+        html += `<div class="lottery-nagun lottery-list-item">${nagunHeavyList[i].name}</div>`
+    }
+    $('#lottery-heavy').html(html);
+    
+    html = "";
+    for (let i = 0; i < 2; i++)
+    {
+        if (nagunSpecialList.length <= i)
+        {
+            break;
+        }
+        html += `<div class="lottery-nagun lottery-list-item">${nagunSpecialList[i].name}</div>`
+    }
+    $('#lottery-special').html(html);
 };
 
 /**
@@ -148,92 +316,33 @@ function updateCounter(id, value)
 {
 };
 
-
-
-/*
-function selectPackage()
+/**
+ * 
+ */
+function getPackage(id)
 {
-    $('#select-package').addClass('display-none');
-
-    // 抽出
-    let select_list = $('.select-package-checkbox:checked');
-    let select_package = [];
-    select_list.each(function(idx, elm){
-        select_package.push(elm.name);
-    });
-
-    // キャラクターをまとめる
-    let character_list = [];
-    CHARACTER_LIST.forEach(elm => {
-        if (select_package.includes(elm.package))
-        {
-            character_list.push(elm);
-        }
-    });
-
-    // 武器をまとめる
-    let nagun_list = [];
-    NAGUN_LIST.forEach(elm => {
-        if (select_package.includes(elm.package))
-        {
-            nagun_list.push(elm);
-        }
-    });
-
-    // キャラクター抽選
-    character_list = shuffleArray(character_list).slice(0, 4);
-
-    // 武器抽選
-    let light_list = [];
-    let heavy_list = [];
-    let special_list = [];
-    nagun_list.forEach(elm => {
-        switch (elm.type)
-        {
-            case 'light': light_list.push(elm); break;
-            case 'heavy': heavy_list.push(elm);break;
-            case 'special': special_list.push(elm);break;
-        }
-    });
-    light_list = shuffleArray(light_list).slice(0, 2);
-    heavy_list = shuffleArray(heavy_list).slice(0, 2);
-    special_list = shuffleArray(special_list).slice(0, 2);
-
-    // 書き換え
-    $('#result-character').empty();
-    character_list.forEach(elm => {
-        $('#result-character').append(`<div>${elm.package} : ${elm.name}</div>`);
-    });
-    $('#result-nagun').empty();
-    light_list.forEach(elm => {
-        $('#result-nagun').append(`<div>${elm.package} : ${elm.name}</div>`);
-    });
-    heavy_list.forEach(elm => {
-        $('#result-nagun').append(`<div>${elm.package} : ${elm.name}</div>`);
-    });
-    special_list.forEach(elm => {
-        $('#result-nagun').append(`<div>${elm.package} : ${elm.name}</div>`);
-    });
-
-    
-    $('#result').removeClass('display-none');
-    $('body').addClass('height-long');
-}
-
-function reset()
-{
-    $('#select-package').removeClass('display-none');
-    $('#result').addClass('display-none');
-    $('body').removeClass('height-long');
-}
-
-function shuffleArray(ary)
-{
-    for (let i = ary.length - 1; i > 0; i--)
+    let package = PACKAGE_LIST[0];
+    for (let i = 0; i < PACKAGE_LIST.length; i++)
     {
-        let j = Math.floor(Math.random() * (i + 1));
-        [ary[i], ary[j]] = [ary[j], ary[i]];
+        if (PACKAGE_LIST[i].id == id)
+        {
+            package = PACKAGE_LIST[i];
+            break;
+        }
     }
-    return ary;
+    return package;
 }
-*/
+
+/**
+ * 
+ */
+function shuffleArray(array)
+{
+    let k;
+    for (let i = array.length; 1 < i; i--)
+    {
+        k = Math.floor(Math.random() * i);
+        [array[k], array[i - 1]] = [array[i - 1], array[k]];
+    }
+    return array;
+};
