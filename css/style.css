@@ -284,8 +284,8 @@ input[type="checkbox"] {
 }
 
 .left, .right {
-    margin-top: 4vw;
-    margin-bottom: 4vw;
+    margin-top: 8vw;
+    margin-bottom: 8vw;
 }
 .left {
     text-align: left;
@@ -331,13 +331,13 @@ input[type="checkbox"] {
 }
 
 .left .life-counter-player {
-    padding-left: 1vw;
+    padding-left: 4vw;
     padding-right: 2vw;
 }
 
 .right .life-counter-player {
     padding-left: 2vw;
-    padding-right: 1vw;
+    padding-right: 4vw;
 }
 
 
