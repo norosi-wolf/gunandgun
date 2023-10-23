@@ -291,11 +291,13 @@ input[type="checkbox"] {
     text-align: left;
     color: rgb(206, 123, 15);
     border-bottom: 1vw solid rgb(206, 123, 15);
+    border-right: 3vw solid rgb(206, 123, 15);
 }
 .right {
+    text-align: right;
     color: rgb(32, 32, 163);
     border-bottom: 1vw solid rgb(32, 32, 163);
-    text-align: right;
+    border-left: 3vw solid rgb(32, 32, 163);
 }
 
 .left .content-counter-inner {
@@ -303,6 +305,7 @@ input[type="checkbox"] {
     display: flex;
     align-items: left;
     justify-content: left;
+    margin-bottom: -2vw;
 }
 
 .right .content-counter-inner {
@@ -310,6 +313,7 @@ input[type="checkbox"] {
     display: flex;
     align-items: right;
     justify-content: right;
+    margin-bottom: -2vw;
 }
 
 .content-life-counter {
@@ -318,11 +322,12 @@ input[type="checkbox"] {
 }
 
 .life-counter-player {
-    font-size: 10vw;
+    font-size: 20vw;
     align-items: center;
     justify-content: center;
     text-align: center;
     margin: auto 0;
+    margin-top: -3vw;
 }
 
 .left .life-counter-player {
@@ -354,12 +359,12 @@ input[type="checkbox"] {
 	display: block;
 	text-align: center;
 	text-decoration: none;
-	padding: 0vw 1.5vw;
+	padding: 0vw 2vw;
 	border: 0.5vw solid #27acd9;
 	color: #27acd9;
 	border-radius: 100vw;
 	transition: 0.5s;
-    font-size: 5vw;
+    font-size: 7vw;
     margin: auto 0;
 }
 .life-counter-button:active  {
@@ -375,7 +380,7 @@ input[type="checkbox"] {
 }
 .fa-heart, .fa-fire{
     margin: auto 0;
-    width: 5vw;
+    width: 10vw;
 	text-align: center;
 }
 .left .fa-heart, .left .fa-fire{
@@ -394,9 +399,9 @@ input[type="checkbox"] {
 }
 
 .life-counter {
-    font-size: 5vw;
+    font-size: 10vw;
     display: flex;
-    width: 40vw;
+    width: 80vw;
     margin: auto;
 }
 

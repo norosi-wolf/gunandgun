@@ -49,6 +49,8 @@ const NAGUN_LIST = [
 ];
 
 var Page = {
+    scrollY: 0,
+    isScroll: true,
     current: "",
 };
 
@@ -94,10 +96,11 @@ function viewPage(id)
 
     switch (id)
     {
-        case 'page-lottery': updateLottery(); break;
+        case 'page-lottery': initializeLottery(); break;
     }
     
     Page.current = id;
+    $(window).scrollTop(0);
 };
 
 /**
@@ -232,6 +235,29 @@ function saveSetting()
 /**
  * 
  */
+function initializeLottery()
+{
+    let html = "";
+    for (let i = 0; i < 4; i++)
+    {
+        html += `<div class="lottery-charatcer lottery-list-item">-----</div>`
+        if (i % 2 == 1) html += "<br />";
+    }
+    $('#lottery-charatcer-list').html(html);
+
+    html = "";
+    for (let i = 0; i < 2; i++)
+    {
+        html += `<div class="lottery-nagun lottery-list-item">-----</div>`
+    }
+    $('#lottery-light').html(html);
+    $('#lottery-heavy').html(html);
+    $('#lottery-special').html(html);
+}
+
+/**
+ * 
+ */
 function updateLottery()
 {
     let characterList = [];
@@ -265,51 +291,53 @@ function updateLottery()
     nagunSpecialList = shuffleArray(nagunSpecialList);
 
     let html = "";
+    let name;
     for (let i = 0; i < 4; i++)
     {
-        if (characterList.length <= i)
+        name = '-----';
+        if (i < characterList.length)
         {
-            break;
+            name = characterList[i].name;
         }
-        html += `<div class="lottery-charatcer lottery-list-item">${characterList[i].name}</div>`
+        html += `<div class="lottery-charatcer lottery-list-item">${name}</div>`
 
-        if (i % 2 == 1)
-        {
-            html += "<br />";
-        }
+        if (i % 2 == 1) html += "<br />";
     }
     $('#lottery-charatcer-list').html(html);
 
     html = "";
     for (let i = 0; i < 2; i++)
     {
-        if (nagunLightList.length <= i)
+        name = '-----';
+        if (i < nagunLightList.length)
         {
-            break;
+            name = nagunLightList[i].name;
         }
-        html += `<div class="lottery-nagun lottery-list-item">${nagunLightList[i].name}</div>`
+        html += `<div class="lottery-nagun lottery-list-item">${name}</div>`
     }
     $('#lottery-light').html(html);
     
     html = "";
     for (let i = 0; i < 2; i++)
     {
-        if (nagunHeavyList.length <= i)
+        name = '-----';
+        if (i < nagunHeavyList.length)
         {
-            break;
+            name = nagunHeavyList[i].name;
         }
-        html += `<div class="lottery-nagun lottery-list-item">${nagunHeavyList[i].name}</div>`
+        html += `<div class="lottery-nagun lottery-list-item">${name}</div>`
     }
     $('#lottery-heavy').html(html);
     
     html = "";
     for (let i = 0; i < 2; i++)
     {
-        if (nagunSpecialList.length <= i)
+        name = '-----';
+        if (i < nagunSpecialList.length)
         {
-            break;
+            name = nagunSpecialList[i].name;
         }
-        html += `<div class="lottery-nagun lottery-list-item">${nagunSpecialList[i].name}</div>`
+        html += `<div class="lottery-nagun lottery-list-item">${name}</div>`
     }
     $('#lottery-special').html(html);
 };
@@ -392,4 +420,26 @@ function closeModal(id)
     $(`#${id}`).hide();
     $('html').css('overflow-y', '');
     allowScroll();
+};
+
+/**
+ * 
+ */
+function allowScroll()
+{
+    Page.isScroll = true;
+    $('html').removeClass('no_scroll');
+    $('body').removeClass('no_scroll');
+    $(window).scrollTop(Page.scrollY);
+};
+
+/**
+ * 
+ */
+function forbidScroll()
+{
+    Page.isScroll = false;
+    Page.scrollY = $(window).scrollTop();
+    $('html').addClass('no_scroll');
+    $('body').addClass('no_scroll');
 };
