@@ -266,7 +266,7 @@ function initializeLottery()
 function initializeLifeCounter()
 {
     $('#box-info').hide();
-    $('main').css({width:'100vw'})
+    $('main').css({width:'100vw', margin:'0'});
 }
 
 /**

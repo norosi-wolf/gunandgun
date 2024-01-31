@@ -293,20 +293,18 @@ input[type="checkbox"] {
 }
 
 .left, .right {
-    margin-top: 8vw;
-    margin-bottom: 8vw;
+    margin-top: 0vw;
+    margin-bottom: 0vw;
 }
 .left {
     text-align: left;
     color: rgb(206, 123, 15);
-    border-bottom: 1vw solid rgb(206, 123, 15);
-    border-right: 3vw solid rgb(206, 123, 15);
+    background-color: rgb(206, 123, 15);
 }
 .right {
     text-align: right;
     color: rgb(32, 32, 163);
-    border-bottom: 1vw solid rgb(32, 32, 163);
-    border-left: 3vw solid rgb(32, 32, 163);
+    background-color: rgb(32, 32, 163);
 }
 
 .left .content-counter-inner {
