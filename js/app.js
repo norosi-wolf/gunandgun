@@ -3,6 +3,7 @@ class GunPackage {
     static NORMAL = 'NORMAL';
     static OVERHEAT = 'OVERHEAT';
     static WSHOUT = 'WSHOUT';
+    static ULTRABOMMY = 'ULTRABOMMY';
 };
 
 class GunType {
@@ -12,9 +13,10 @@ class GunType {
 };
 
 const PACKAGE_LIST = [
-    {id:1, name:"Nomarl", type:GunPackage.NORMAL},
-    {id:2, name:"Overheat", type:GunPackage.OVERHEAT},
-    {id:3, name:"W Shout", type:GunPackage.WSHOUT},
+    {id:1, name:"Nomarl", type:GunPackage.NORMAL, ext:""},
+    {id:2, name:"Overheat", type:GunPackage.OVERHEAT, ext:".oh"},
+    {id:3, name:"W Shout", type:GunPackage.WSHOUT, ext:".ws"},
+    {id:4, name:"ULTRA BOMMY", type:GunPackage.ULTRABOMMY, ext:".ub"},
 ];
 
 const CHARACTER_LIST = [
@@ -28,6 +30,8 @@ const CHARACTER_LIST = [
     {id:8, name:"テトラ", package:GunPackage.WSHOUT},
     {id:9, name:"エコ", package:GunPackage.WSHOUT},
     {id:10, name:"アハト", package:GunPackage.WSHOUT},
+    {id:11, name:"ウノ", package:GunPackage.ULTRABOMMY},
+    {id:12, name:"ロック", package:GunPackage.ULTRABOMMY},
 ];
 
 const NAGUN_LIST = [
@@ -46,6 +50,9 @@ const NAGUN_LIST = [
     {id:13, name:"モウリョウ", package:GunPackage.WSHOUT, type:GunType.HEAVY},
     {id:14, name:"バク", package:GunPackage.WSHOUT, type:GunType.SPECIAL},
     {id:15, name:"コダマ", package:GunPackage.WSHOUT, type:GunType.SPECIAL},
+    {id:16, name:"ミツメ", package:GunPackage.ULTRABOMMY, type:GunType.LIGHT},
+    {id:17, name:"カシャ", package:GunPackage.ULTRABOMMY, type:GunType.HEAVY},
+    {id:18, name:"ヒダル", package:GunPackage.ULTRABOMMY, type:GunType.SPECIAL},
 ];
 
 var Page = {
@@ -97,6 +104,7 @@ function viewPage(id)
     switch (id)
     {
         case 'page-lottery': initializeLottery(); break;
+        case 'page-life-counter': initializeLifeCounter(); break;
     }
     
     Page.current = id;
@@ -255,11 +263,31 @@ function initializeLottery()
     $('#lottery-special').html(html);
 }
 
+function initializeLifeCounter()
+{
+    $('#box-info').hide();
+    $('main').css({width:'100vw'})
+}
+
 /**
  * 
  */
 function updateLottery()
 {
+    let html = "";
+    html += '<div class="lottery-charatcer lottery-list-item">-----</div>';
+    html += '<div class="lottery-charatcer lottery-list-item">-----</div><br />';
+    html += '<div class="lottery-charatcer lottery-list-item">-----</div>';
+    html += '<div class="lottery-charatcer lottery-list-item">-----</div><br />';
+    $('#lottery-charatcer-list').html(html);
+
+    html = "";
+    html += '<div class="lottery-nagun lottery-list-item">-----</div>';
+    html += '<div class="lottery-nagun lottery-list-item">-----</div>';
+    $('#lottery-light').html();
+    $('#lottery-heavy').html(html);
+    $('#lottery-special').html(html);
+
     let characterList = [];
     let nagunLightList = [];
     let nagunHeavyList = [];
@@ -290,8 +318,8 @@ function updateLottery()
     nagunHeavyList = shuffleArray(nagunHeavyList);
     nagunSpecialList = shuffleArray(nagunSpecialList);
 
-    let html = "";
     let name;
+    html = "";
     for (let i = 0; i < 4; i++)
     {
         name = '-----';
@@ -299,7 +327,7 @@ function updateLottery()
         {
             name = characterList[i].name;
         }
-        html += `<div class="lottery-charatcer lottery-list-item">${name}</div>`
+        html += `<div class="lottery-charatcer lottery-list-item fadein">${name}</div>`
 
         if (i % 2 == 1) html += "<br />";
     }
@@ -313,7 +341,7 @@ function updateLottery()
         {
             name = nagunLightList[i].name;
         }
-        html += `<div class="lottery-nagun lottery-list-item">${name}</div>`
+        html += `<div class="lottery-nagun lottery-list-item fadein">${name}</div>`
     }
     $('#lottery-light').html(html);
     
@@ -325,7 +353,7 @@ function updateLottery()
         {
             name = nagunHeavyList[i].name;
         }
-        html += `<div class="lottery-nagun lottery-list-item">${name}</div>`
+        html += `<div class="lottery-nagun lottery-list-item fadein">${name}</div>`
     }
     $('#lottery-heavy').html(html);
     
@@ -337,9 +365,19 @@ function updateLottery()
         {
             name = nagunSpecialList[i].name;
         }
-        html += `<div class="lottery-nagun lottery-list-item">${name}</div>`
+        html += `<div class="lottery-nagun lottery-list-item fadein">${name}</div>`
     }
     $('#lottery-special').html(html);
+
+    // 
+    let list = $('.lottery-list-item');
+    for (let i = 0; i < list.length; i++)
+    {
+        $(list[i]).delay((i + 1) * 250).queue(function(){
+            $(this).dequeue();
+            $(this).addClass('active');
+        });
+    }
 };
 
 /**
