@@ -189,8 +189,25 @@
     <div id="page-life-counter" class="" style="display: none;">
         
         <div class="">
-            <div class="left" style="height:50vh;"></div>
-            <div class="right" style="height:50vh;"></div>
+            <div class="life-top">
+                <div class="life-count">20</div>
+                <div class="life-buttons">
+                    <div class="button-up"></div>
+                    <div class="button-down"></div>
+                </div>
+            </div>
+            <div class="life-middle">
+                <a href="javascript:openModal('modal-back')"><div class="button-life-menu"><i class="fa-solid fa-power-off"></i></div></a>
+                <div class="button-life-menu"><i class="fa-solid fa-rotate"></i></div>
+                <a href="javascript:openModal('modal-reset')"><div class="button-life-menu"><i class="fa-solid fa-hand-point-up"></i></div></a>
+            </div>
+            <div class="life-bottom">
+                <div class="life-count">20</div>
+                <div class="life-buttons">
+                    <div class="button-up"></div>
+                    <div class="button-down"></div>
+                </div>
+            </div>
         </div>
 
         <!--
@@ -295,12 +312,28 @@
 <div class="modal-overlay" id="modal-reset" style="display: none;">
     <div class="center">
         <div class="modal-wrapper modal-confirm">
-            <div class="modal-title box-title">Reset</div>
+            <div class="modal-title box-title">Reset?</div>
             <div class="content-single">
                 <div class="content-inner">
                     <div class="center">
-                        <a href="javascript:resetLifeCounter()" class="content-event-button" id="submitReset">APPLY</a>
+                        <a href="javascript:resetLifeCounter()" class="content-event-button" id="submitReset">RESET</a>
                         <a href="javascript:closeModal('modal-reset')" class="content-event-button">CANCEL</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal-overlay" id="modal-back" style="display: none;">
+    <div class="center">
+        <div class="modal-wrapper modal-confirm">
+            <div class="modal-title box-title">Back?</div>
+            <div class="content-single">
+                <div class="content-inner">
+                    <div class="center">
+                        <a href="javascript:javascript:viewPage('page-menu')" class="content-event-button" id="submitReset">BACK</a>
+                        <a href="javascript:closeModal('modal-back')" class="content-event-button">CANCEL</a>
                     </div>
                 </div>
             </div>
