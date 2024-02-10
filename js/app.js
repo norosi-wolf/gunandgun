@@ -96,9 +96,14 @@ function viewPage(id)
     $('.page-common').hide();
     $(`#${id}`).show();
 
+    console.log("-- viewPage");
+    console.log(Page.current);
+    console.log(id);
+
     switch (Page.current)
     {
         case 'page-setting': saveSetting(); break;
+        case 'page-life-counter': terminateLifeCounter(); break;
     }
 
     switch (id)
@@ -267,6 +272,14 @@ function initializeLifeCounter()
 {
     $('#box-info').hide();
     $('main').css({width:'100vw', margin:'0'});
+}
+
+function terminateLifeCounter()
+{
+    closeModal('modal-back');
+    $('#box-info').show();
+    $('#page-life-counter').hide();
+    $('main').css({width:'95vw', marginTop:'1%', marginRight:'-50%'});
 }
 
 /**
