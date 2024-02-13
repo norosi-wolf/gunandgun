@@ -298,29 +298,26 @@ input[type="checkbox"] {
 .life-top, .life-bottom {
     margin-top: 0vw;
     margin-bottom: 0vw;
-    height:45vh;
 }
 .life-top {
     text-align: left;
     color: rgb(206, 123, 15);
     background-color: rgb(206, 123, 15);
-    position:relative;
-    transform-origin:50% 50% 0;
-    transform:rotate(0deg);
 }
 .life-middle {
     height: 10vh;
+    width: 100vw;
     display: flex;
     justify-content:center;
     align-items:center;
     clear: both;
+    transform-origin:50% 50% 0;
+    transform:rotate(0deg);
 }
 .life-bottom {
     text-align: right;
     color: rgb(32, 32, 163);
     background-color: rgb(32, 32, 163);
-    transform-origin:50% 50% 0;
-    transform:rotate(0deg);
 }
 .life-count {
     height: 100%;
@@ -334,28 +331,21 @@ input[type="checkbox"] {
 .life-buttons {
     width: 100%;
     height: 100%;
-}
-.button-up {
-    background-color: rgb(45, 255, 98, 0.5);
-    float: left;
-    width: 50%;
-    height: 100%;
-}
-.button-down {
-    background-color: rgb(247, 250, 48, 0.5);
-    float: right;
-    width: 50%;
-    height: 100%;
-}
-.life-buttons {
+    transform-origin:50% 50% 0;
     position:absolute;
     top: 0px;
     left: 0;
 }
+.button-up {
+    background-color: rgb(45, 255, 98, 0.5);
+    transform-origin:50% 50% 0;
+}
+.button-down {
+    background-color: rgb(247, 250, 48, 0.5);
+    transform-origin:50% 50% 0;
+}
 .button-life-menu {
     font-size: 8vh;
-    width: 20vh;
-    height: 100%;
     display: flex;
     justify-content:center;
     align-items:center;
@@ -371,6 +361,34 @@ input[type="checkbox"] {
 }
 .life-middle a:active {
     color: rgb(255, 78, 78);
+}
+
+.vertical .life-top {
+    position:relative;
+    transform-origin:50% 50% 0;
+    transform:rotate(180deg);
+    height:45vh;
+    width:100vw;
+}
+.vertical .life-bottom {
+    transform-origin:50% 50% 0;
+    transform:rotate(0deg);
+    height:45vh;
+    width:100vw;
+}
+.vertical .button-up {
+    float: left;
+    width: 50%;
+    height: 100%;
+}
+.vertical .button-down {
+    float: right;
+    width: 50%;
+    height: 100%;
+}
+.vertical .button-life-menu {
+    width: 20vh;
+    height: 100%;
 }
 
 

@@ -73,10 +73,7 @@
                     <div class="center">
                         <div>
                             <div class="lottery-nagun-title"><i class="fa-solid fa-user title-icon"></i>Character</div>
-                            <div id="character-select" class="select-list">
-                                <div class="select-list-item"><input class="input-checkbox select-package-checkbox" type="checkbox" checked><label for="package-name">Normal</label></div>
-                                <div class="select-list-item"><input class="input-checkbox select-package-checkbox" type="checkbox" checked><label for="package-name">Overheat</label></div>
-                            </div>
+                            <div id="character-select" class="select-list"></div>
                         </div>
                     </div>
                 </div>
@@ -133,12 +130,7 @@
                     <div class="center">
                         <div>
                             <div class="lottery-nagun-title"><i class="fa-solid fa-user title-icon"></i>Character</div>
-                            <div id="lottery-charatcer-list" class="lottery-list">
-                                <div class="lottery-charatcer lottery-list-item">-----</div>
-                                <div class="lottery-charatcer lottery-list-item">-----</div>
-                                <div class="lottery-charatcer lottery-list-item">-----</div>
-                                <div class="lottery-charatcer lottery-list-item">-----</div>
-                            </div>
+                            <div id="lottery-charatcer-list" class="lottery-list"></div>
                         </div>
                     </div>
                 </div>
@@ -150,20 +142,11 @@
                     <div class="center">
                         <div id="lottery-nagun-list" class="lottery-list">
                             <div class="lottery-nagun-title"><i class="fa-solid fa-gun title-icon"></i>Light</div>
-                            <div id="lottery-light" class="center">
-                                <div class="lottery-nagun lottery-list-item">-----</div>
-                                <div class="lottery-nagun lottery-list-item">-----</div>
-                            </div>
+                            <div id="lottery-light" class="center"></div>
                             <div class="lottery-nagun-title"><i class="fa-solid fa-gun title-icon"></i>Heavy</div>
-                            <div id="lottery-heavy" class="center">
-                                <div class="lottery-nagun lottery-list-item">-----</div>
-                                <div class="lottery-nagun lottery-list-item">-----</div>
-                            </div>
+                            <div id="lottery-heavy" class="center"></div>
                             <div class="lottery-nagun-title"><i class="fa-solid fa-gun title-icon"></i>Special</div>
-                            <div id="lottery-special" class="center">
-                                <div class="lottery-nagun lottery-list-item">-----</div>
-                                <div class="lottery-nagun lottery-list-item">-----</div>
-                            </div>
+                            <div id="lottery-special" class="center"></div>
                         </div>
                     </div>
                 </div>
@@ -188,24 +171,25 @@
     <!-- page-life-counter -->
     <div id="page-life-counter" style="display: none;">
         
-        <div class="">
+        <!--<div class="vertical">-->
+        <div class="vertical">
             <div class="life-top">
-                <div class="life-count">20</div>
+                <div id="p1-life" class="life-count">20</div>
                 <div class="life-buttons">
-                    <div class="button-up"></div>
-                    <div class="button-down"></div>
+                    <a href="javascript:addPlayerScore('p1', 1)"><div class="button-up"></div></a>
+                    <a href="javascript:addPlayerScore('p1', -1)"><div class="button-down"></div></a>
                 </div>
             </div>
             <div class="life-middle">
                 <a href="javascript:openModal('modal-back')"><div class="button-life-menu"><i class="fa-solid fa-power-off"></i></div></a>
-                <div class="button-life-menu"><i class="fa-solid fa-rotate"></i></div>
+                <a href="javascript:rotateScoreView()"><div class="button-life-menu"><i class="fa-solid fa-rotate"></i></div></a>
                 <a href="javascript:openModal('modal-reset')"><div class="button-life-menu"><i class="fa-solid fa-hand-point-up"></i></div></a>
             </div>
             <div class="life-bottom">
-                <div class="life-count">20</div>
+                <div id="p2-life" class="life-count">20</div>
                 <div class="life-buttons">
-                    <div class="button-up"></div>
-                    <div class="button-down"></div>
+                    <a href="javascript:addPlayerScore('p2', 1)"><div class="button-up"></div></a>
+                    <a href="javascript:addPlayerScore('p2', -1)"><div class="button-down"></div></a>
                 </div>
             </div>
         </div>

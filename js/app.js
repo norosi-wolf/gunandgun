@@ -59,6 +59,7 @@ var Page = {
     scrollY: 0,
     isScroll: true,
     current: "",
+    rotateVertical: true,
 };
 
 var NgList = {
@@ -66,14 +67,12 @@ var NgList = {
     naguns: [],
 };
 
-var LifeData = {
+var PlayerDatas = {
     p1: {
-        life: 20,
-        burn: 0,
+        life: 20
     },
     p2: {
-        life: 20,
-        burn: 0,
+        life: 20
     }
 };
 
@@ -392,6 +391,36 @@ function updateLottery()
         });
     }
 };
+
+function addPlayerScore(player, addValue)
+{
+    if (player in PlayerDatas)
+    {
+        PlayerDatas[player].life += addValue;
+        $(`#${player}-life`).text(PlayerDatas[player].life);
+    }
+}
+
+function rotateScoreView()
+{
+    if (Page.rotateVertical)
+    {
+        $('.life-top > .life-count').css({'transform':'rotate(90deg)'});
+        $('.life-bottom > .life-count').css({'transform':'rotate(-90deg)'});
+
+        $('.life-buttons').css({'transform':'rotate(-90deg)', 'height':'100vw', 'width':'45vh'});
+        
+        //$('.life-buttons').css({'height':'100vw', 'width':'45vh'});
+        
+        // $('.life-bottom').css({'width':'45vh', 'height':'130vw', 'transform':'rotate(-90deg)'});
+        //$('.life-middle').css({'width':'100vw', 'height':'10vh'});
+    }
+    else
+    {
+    }
+
+    Page.rotateVertical = !Page.rotateVertical;
+}
 
 /**
  * 
