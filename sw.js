@@ -16,7 +16,7 @@ var urlsToCache = [
     '/gunnagun/css/style.css',
     '/gunnagun/webfonts/fa-solid-900.ttf',
     '/gunnagun/webfonts/fa-solid-900.woff2',
-    '/gunnagun/webfonts/MPLUSRounded1c-Regular.ttf',
+    '/gunnagun/webfonts/RocknRollOne-Regular.ttf',
     '/gunnagun/img/icon_192x192.png',
     '/gunnagun/img/icon_512x512.png',
 ];
