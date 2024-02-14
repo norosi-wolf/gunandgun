@@ -329,11 +329,13 @@ input[type="checkbox"] {
     transform-origin:50% 50% 0;
 }
 .button-up {
-    background-color: rgb(45, 255, 98, 0.5);
+    background-color: #FFF;
+    opacity: 0;
     transform-origin:50% 50% 0;
 }
 .button-down {
-    background-color: rgb(247, 250, 48, 0.5);
+    background-color: #FFF;
+    opacity: 0;
     transform-origin:50% 50% 0;
 }
 .button-life-menu {
