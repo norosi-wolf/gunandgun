@@ -320,21 +320,13 @@ input[type="checkbox"] {
     background-color: rgb(32, 32, 163);
 }
 .life-count {
-    height: 100%;
-    text-align: center;
     color: rgb(255, 255, 255);
-    display: flex;
-    justify-content:center;
-    align-items:center;
     font-size: 20vh;
 }
 .life-buttons {
     width: 100%;
     height: 100%;
     transform-origin:50% 50% 0;
-    position:absolute;
-    top: 0px;
-    left: 0;
 }
 .button-up {
     background-color: rgb(45, 255, 98, 0.5);
@@ -376,6 +368,11 @@ input[type="checkbox"] {
     height:45vh;
     width:100vw;
 }
+.vertical .life-buttons {
+    position:absolute;
+    top: 0;
+    left: 0;
+}
 .vertical .button-up {
     float: left;
     width: 50%;
@@ -390,9 +387,60 @@ input[type="checkbox"] {
     width: 20vh;
     height: 100%;
 }
+.vertical .life-count {
+    height: 100%;
+    text-align: center;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+}
 
-
-
+.horizon .life-top {
+    position:relative;
+    height:45vh;
+    width:100vw;
+}
+.horizon .life-bottom {
+    position:relative;
+    height:45vh;
+    width:100vw;
+}
+.horizon .life-count {
+    text-align: center;
+    justify-content:center;
+    align-items:center;
+    display: flex;
+}
+.horizon .life-count a {
+    width: 45vh;
+    padding-left: 15vh;
+    text-align: center;
+    justify-content:center;
+    align-items:center;
+    display: flex;
+    transform-origin:50% 50% 0;
+    transform:rotate(90deg);
+    pointer-events: none;
+}
+.horizon .button-life-menu {
+    width: 20vh;
+    height: 100%;
+    transform-origin:50% 50% 0;
+    transform:rotate(90deg);
+}
+.horizon .life-buttons {
+    position:absolute;
+    top: 0;
+    left: 0;
+}
+.horizon .button-up {
+    width: 100%;
+    height: 50%;
+}
+.horizon .button-down {
+    width: 100%;
+    height: 50%;
+}
 
 
 

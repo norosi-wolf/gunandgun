@@ -59,7 +59,6 @@ var Page = {
     scrollY: 0,
     isScroll: true,
     current: "",
-    rotateVertical: true,
 };
 
 var NgList = {
@@ -397,57 +396,39 @@ function addPlayerScore(player, addValue)
     if (player in PlayerDatas)
     {
         PlayerDatas[player].life += addValue;
-        $(`#${player}-life`).text(PlayerDatas[player].life);
     }
+    updateViewPlayerScore();
+}
+
+function updateViewPlayerScore()
+{
+    $('#p1-life a').text(PlayerDatas.p1.life);
+    $('#p2-life a').text(PlayerDatas.p2.life);
 }
 
 function rotateScoreView()
 {
-    if (Page.rotateVertical)
+    let elm = $('#page-life-counter-innner');
+    if (elm.hasClass('horizon'))
     {
-        $('.life-top > .life-count').css({'transform':'rotate(90deg)'});
-        $('.life-bottom > .life-count').css({'transform':'rotate(-90deg)'});
-
-        $('.life-buttons').css({'transform':'rotate(-90deg)', 'height':'100vw', 'width':'45vh'});
-        
-        //$('.life-buttons').css({'height':'100vw', 'width':'45vh'});
-        
-        // $('.life-bottom').css({'width':'45vh', 'height':'130vw', 'transform':'rotate(-90deg)'});
-        //$('.life-middle').css({'width':'100vw', 'height':'10vh'});
+        elm.removeClass('horizon');
+        elm.addClass('vertical');
     }
     else
     {
+        elm.removeClass('vertical');
+        elm.addClass('horizon');
     }
-
-    Page.rotateVertical = !Page.rotateVertical;
 }
-
-/**
- * 
- */
-function updateCounter(id, param, value)
-{
-    LifeData[id][param] += value;
-    if (LifeData[id][param] < 0) LifeData[id][param] = 0;
-    if (99 < LifeData[id][param]) LifeData[id][param] = 99;
-    $(`#${id}-${param}-value`).text(LifeData[id][param]);
-};
 
 /**
  * 
  */
 function resetLifeCounter()
 {
-    LifeData.p1.life = 20;
-    LifeData.p1.burn = 0;
-    LifeData.p2.life = 20;
-    LifeData.p2.burn = 0;
-
-    $('#p1-life-value').text(LifeData.p1.life);
-    $('#p1-burn-value').text(LifeData.p1.burn);
-    $('#p2-life-value').text(LifeData.p2.life);
-    $('#p2-burn-value').text(LifeData.p2.burn);
-
+    PlayerDatas.p1.life = 20;
+    PlayerDatas.p2.life = 20;
+    updateViewPlayerScore();
     closeModal('modal-reset');
 }
 

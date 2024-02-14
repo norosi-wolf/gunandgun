@@ -170,11 +170,9 @@
 
     <!-- page-life-counter -->
     <div id="page-life-counter" style="display: none;">
-        
-        <!--<div class="vertical">-->
-        <div class="vertical">
+        <div id="page-life-counter-innner" class="vertical">
             <div class="life-top">
-                <div id="p1-life" class="life-count">20</div>
+                <div id="p1-life" class="life-count"><a>20</a></div>
                 <div class="life-buttons">
                     <a href="javascript:addPlayerScore('p1', 1)"><div class="button-up"></div></a>
                     <a href="javascript:addPlayerScore('p1', -1)"><div class="button-down"></div></a>
@@ -186,109 +184,14 @@
                 <a href="javascript:openModal('modal-reset')"><div class="button-life-menu"><i class="fa-solid fa-hand-point-up"></i></div></a>
             </div>
             <div class="life-bottom">
-                <div id="p2-life" class="life-count">20</div>
+                <div id="p2-life" class="life-count"><a>20</a></div>
                 <div class="life-buttons">
                     <a href="javascript:addPlayerScore('p2', 1)"><div class="button-up"></div></a>
                     <a href="javascript:addPlayerScore('p2', -1)"><div class="button-down"></div></a>
                 </div>
             </div>
         </div>
-
-        <!--
-        <div class="box">
-            <div class="content content-life-counter">
-                <div class="">
-                    <div class="left">
-                        <div class="content-counter">
-                            <div class="content-counter-inner">
-                                <div class="life-counter-player"><i class="fa-solid fa-user"></i></div>
-                                <div>
-                                    <div class="life-counter life-counter-left">
-                                        <a href="javascript:updateCounter('p1', 'life', -1)" class="life-counter-button"><i class="fa-solid fa-minus"></i></a>
-                                        <i class="fa-solid fa-heart"></i><div id="p1-life-value" class="player-life-value">20</div>
-                                        <a href="javascript:updateCounter('p1', 'life', 1)" class="life-counter-button"><i class="fa-solid fa-plus"></i></a>
-                                    </div>
-                                    <div class="life-counter life-counter-left">
-                                        <a href="javascript:updateCounter('p1', 'burn', -1)" class="life-counter-button"><i class="fa-solid fa-minus"></i></a>
-                                        <i class="fa-solid fa-fire"></i></i><div id="p1-burn-value" class="player-life-value">0</div>
-                                        <a href="javascript:updateCounter('p1', 'burn', 1)" class="life-counter-button"><i class="fa-solid fa-plus"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="right">
-                        <div class="content-counter">
-                            <div class="content-counter-inner">
-                                <div>
-                                    <div class="life-counter life-counter-right">
-                                        <a href="javascript:updateCounter('p2', 'life', 1)" class="life-counter-button"><i class="fa-solid fa-plus"></i></a>
-                                        <div id="p2-life-value" class="player-life-value">20</div><i class="fa-solid fa-heart"></i>
-                                        <a href="javascript:updateCounter('p2', 'life', -1)" class="life-counter-button"><i class="fa-solid fa-minus"></i></a>
-                                    </div>
-                                    <div class="life-counter life-counter-right">
-                                        <a href="javascript:updateCounter('p2', 'burn', 1)" class="life-counter-button"><i class="fa-solid fa-plus"></i></a>
-                                        <div id="p2-burn-value" class="player-life-value">0</div><i class="fa-solid fa-fire"></i>
-                                        <a href="javascript:updateCounter('p2', 'burn', -1)" class="life-counter-button"><i class="fa-solid fa-minus"></i></a>
-                                    </div>
-                                </div>
-                                <div class="life-counter-player"><i class="fa-solid fa-user"></i></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        -->
-        <!--
-        <div class="box" id="box-setting">
-            <div class="content">
-                <div class="content-inner">
-                    <div class="center">
-                        <a href="javascript:viewPage('page-menu')" class="content-event-button">Menu</a>
-                    </div>
-                    <div class="center">
-                        <a href="javascript:openModal('modal-reset')" class="content-event-button">Reset</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        -->
     </div>
-
-    <!--
-    <div id="select-package">
-        <div class="select-package-checkbox-list">
-            <input class="input-checkbox select-package-checkbox" type="checkbox" id="gg-01" name="normal" checked><label for="package-name">Normal</label><br >
-            <input class="input-checkbox select-package-checkbox" type="checkbox" id="gg-02" name="overheat" checked><label for="package-name">Overheat</label><br >
-            <input class="input-checkbox select-package-checkbox" type="checkbox" id="gg-03" name="wshout" checked><label for="package-name">W Shout</label><br >
-        </div>
-        <button class="select-package-ok" id="select-package-ok" onclick="selectPackage()">OK</button>
-    </div>
-
-    
-    <div id="result" class="display-none">
-        <div class="result-box">
-            <div class="result-box-title">- Character -</div>
-            <div id="result-character">
-                <div>アイウエオ</div>
-                <div>アイウエオ</div>
-            </div>
-        </div>
-        
-        <div class="result-box">
-            <div class="result-box-title">- NAGUN -</div>
-            <div id="result-nagun">
-                <div>アイウエオ</div>
-                <div>アイウエオ</div>
-                <div>アイウエオ</div>
-            </div>
-        </div>
-
-        <button class="result-back" id="result-back" onclick="reset()">Back</button>
-    </div>
-    -->
 
 </main>
 
