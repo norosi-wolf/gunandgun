@@ -13,10 +13,10 @@ class GunType {
 };
 
 const PACKAGE_LIST = [
-    {id:1, name:"Nomarl", type:GunPackage.NORMAL, ext:""},
-    {id:2, name:"Overheat", type:GunPackage.OVERHEAT, ext:".oh"},
-    {id:3, name:"W Shout", type:GunPackage.WSHOUT, ext:".ws"},
-    {id:4, name:"ULTRA BOMMY", type:GunPackage.ULTRABOMMY, ext:".ub"},
+    {id:1, name:"Nomarl", type:GunPackage.NORMAL, ext:"n"},
+    {id:2, name:"Overheat", type:GunPackage.OVERHEAT, ext:"oh"},
+    {id:3, name:"W Shout", type:GunPackage.WSHOUT, ext:"ws"},
+    {id:4, name:"ULTRA BOMMY", type:GunPackage.ULTRABOMMY, ext:"ub"},
 ];
 
 const CHARACTER_LIST = [
@@ -274,7 +274,7 @@ function initializeLifeCounter()
 
 function terminateLifeCounter()
 {
-    closeModal('modal-back');
+    closeModal('modal-close');
     $('#box-info').show();
     $('#page-life-counter').hide();
     $('main').css({width:'95vw', marginTop:'1%', marginRight:'-50%'});
@@ -330,13 +330,15 @@ function updateLottery()
     nagunSpecialList = shuffleArray(nagunSpecialList);
 
     let name;
+    let package;
     html = "";
     for (let i = 0; i < 4; i++)
     {
         name = '-----';
         if (i < characterList.length)
         {
-            name = characterList[i].name;
+            package = getPackageFromType(characterList[i].package);
+            name = characterList[i].name + '-' + package.ext;
         }
         html += `<div class="lottery-charatcer lottery-list-item fadein">${name}</div>`
 
@@ -350,7 +352,8 @@ function updateLottery()
         name = '-----';
         if (i < nagunLightList.length)
         {
-            name = nagunLightList[i].name;
+            package = getPackageFromType(nagunLightList[i].package);
+            name = nagunLightList[i].name + '-' + package.ext;
         }
         html += `<div class="lottery-nagun lottery-list-item fadein">${name}</div>`
     }
@@ -362,7 +365,8 @@ function updateLottery()
         name = '-----';
         if (i < nagunHeavyList.length)
         {
-            name = nagunHeavyList[i].name;
+            package = getPackageFromType(nagunHeavyList[i].package);
+            name = nagunHeavyList[i].name + '-' + package.ext;
         }
         html += `<div class="lottery-nagun lottery-list-item fadein">${name}</div>`
     }
@@ -374,7 +378,8 @@ function updateLottery()
         name = '-----';
         if (i < nagunSpecialList.length)
         {
-            name = nagunSpecialList[i].name;
+            package = getPackageFromType(nagunSpecialList[i].package);
+            name = nagunSpecialList[i].name + '-' + package.ext;
         }
         html += `<div class="lottery-nagun lottery-list-item fadein">${name}</div>`
     }
@@ -452,6 +457,20 @@ function getPackage(id)
     for (let i = 0; i < PACKAGE_LIST.length; i++)
     {
         if (PACKAGE_LIST[i].id == id)
+        {
+            package = PACKAGE_LIST[i];
+            break;
+        }
+    }
+    return package;
+}
+
+function getPackageFromType(packageType)
+{
+    let package = PACKAGE_LIST[0];
+    for (let i = 0; i < PACKAGE_LIST.length; i++)
+    {
+        if (PACKAGE_LIST[i].type == packageType)
         {
             package = PACKAGE_LIST[i];
             break;
