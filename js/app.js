@@ -396,14 +396,15 @@ function addPlayerScore(player, addValue)
     if (player in PlayerDatas)
     {
         PlayerDatas[player].life += addValue;
-
         if (addValue > 0)
         {
-            $(`#${player}-life-up`).animate({opacity:1}, 10).animate({opacity:0}, 10);
+            $(`#${player}-life-up`).stop(false, true);
+            $(`#${player}-life-up`).animate({opacity:1}, 100).animate({opacity:0}, 300);
         }
         else
         {
-            $(`#${player}-life-down`).animate({opacity:1}, 10).animate({opacity:0}, 10);
+            $(`#${player}-life-down`).stop(false, true);
+            $(`#${player}-life-down`).animate({opacity:1}, 100).animate({opacity:0}, 300);
         }
         
     }
