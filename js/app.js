@@ -94,10 +94,6 @@ function viewPage(id)
     $('.page-common').hide();
     $(`#${id}`).show();
 
-    console.log("-- viewPage");
-    console.log(Page.current);
-    console.log(id);
-
     switch (Page.current)
     {
         case 'page-setting': saveSetting(); break;
