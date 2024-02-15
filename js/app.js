@@ -266,6 +266,7 @@ function initializeLifeCounter()
 {
     $('#box-info').hide();
     $('main').css({width:'100vw', margin:'0'});
+    $('html').css('overflow-y', 'hidden');
     forbidScroll();
 }
 
@@ -275,6 +276,7 @@ function terminateLifeCounter()
     $('#box-info').show();
     $('#page-life-counter').hide();
     $('main').css({width:'95vw', marginTop:'1%', marginRight:'-50%'});
+    $('html').css('overflow-y', '');
     allowScroll();
 }
 
