@@ -421,15 +421,20 @@ function updateViewPlayerScore()
 function rotateScoreView()
 {
     let elm = $('#page-life-counter-innner');
-    if (elm.hasClass('horizon'))
+    if (elm.hasClass('display-type01'))
     {
-        elm.removeClass('horizon');
-        elm.addClass('vertical');
+        elm.removeClass('display-type01');
+        elm.addClass('display-type02');
     }
-    else
+    else if (elm.hasClass('display-type02'))
     {
-        elm.removeClass('vertical');
-        elm.addClass('horizon');
+        elm.removeClass('display-type02');
+        elm.addClass('display-type03');
+    }
+    else if (elm.hasClass('display-type03'))
+    {
+        elm.removeClass('display-type03');
+        elm.addClass('display-type01');
     }
 }
 

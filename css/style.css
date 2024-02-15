@@ -339,7 +339,7 @@ input[type="checkbox"] {
     transform-origin:50% 50% 0;
 }
 .button-life-menu {
-    font-size: 8vh;
+    font-size: 8vw;
     display: flex;
     justify-content:center;
     align-items:center;
@@ -357,39 +357,39 @@ input[type="checkbox"] {
     color: rgb(255, 78, 78);
 }
 
-.vertical .life-top {
+.display-type01 .life-top {
     position:relative;
     transform-origin:50% 50% 0;
     transform:rotate(180deg);
     height:45vh;
     width:100vw;
 }
-.vertical .life-bottom {
+.display-type01 .life-bottom {
     transform-origin:50% 50% 0;
     transform:rotate(0deg);
     height:45vh;
     width:100vw;
 }
-.vertical .life-buttons {
+.display-type01 .life-buttons {
     position:absolute;
     top: 0;
     left: 0;
 }
-.vertical .button-up {
+.display-type01 .button-up {
     float: left;
     width: 50%;
     height: 100%;
 }
-.vertical .button-down {
+.display-type01 .button-down {
     float: right;
     width: 50%;
     height: 100%;
 }
-.vertical .button-life-menu {
-    width: 20vh;
+.display-type01 .button-life-menu {
+    width: 33vw;
     height: 100%;
 }
-.vertical .life-count {
+.display-type01 .life-count {
     height: 100%;
     text-align: center;
     display: flex;
@@ -397,23 +397,23 @@ input[type="checkbox"] {
     align-items:center;
 }
 
-.horizon .life-top {
+.display-type02 .life-top {
     position:relative;
     height:45vh;
     width:100vw;
 }
-.horizon .life-bottom {
+.display-type02 .life-bottom {
     position:relative;
     height:45vh;
     width:100vw;
 }
-.horizon .life-count {
+.display-type02 .life-count {
     text-align: center;
     justify-content:center;
     align-items:center;
     display: flex;
 }
-.horizon .life-count a {
+.display-type02 .life-count a {
     width: 45vh;
     padding-left: 15vh;
     text-align: center;
@@ -424,26 +424,81 @@ input[type="checkbox"] {
     transform:rotate(90deg);
     pointer-events: none;
 }
-.horizon .button-life-menu {
-    width: 20vh;
+.display-type02 .button-life-menu {
+    width: 33vw;
     height: 100%;
     transform-origin:50% 50% 0;
     transform:rotate(90deg);
 }
-.horizon .life-buttons {
+.display-type02 .life-buttons {
     position:absolute;
     top: 0;
     left: 0;
 }
-.horizon .button-up {
+.display-type02 .button-up {
     width: 100%;
     height: 50%;
 }
-.horizon .button-down {
+.display-type02 .button-down {
     width: 100%;
     height: 50%;
 }
 
+.display-type03 {
+    display: flex;
+}
+.display-type03 .life-top {
+    position:relative;
+    height:100vh;
+    width:45vw;
+    display: flex;
+}
+.display-type03 .life-middle {
+    height:100vh;
+    width:10vw;
+    display: block;
+    transform-origin:50% 50% 0;
+    transform:rotate(180deg);
+}
+.display-type03 .life-bottom {
+    position:relative;
+    height:100vh;
+    width:45vw;
+    display: flex;
+}
+.display-type03 .life-count {
+    width: 100%;
+    display: flex;
+    text-align: center;
+    justify-content:center;
+    align-items:center;
+}
+.display-type03 .life-count a {
+    width: 100%;
+    font-size: 10vw;
+}
+.display-type03 .button-life-menu {
+    width: 10vw;
+    height: 33%;
+    font-size: 40%;
+    transform-origin:50% 50% 0;
+    transform:rotate(180deg);
+}
+.display-type03 .life-buttons {
+    position:absolute;
+    top: 0;
+    left: 0;
+}
+.display-type03 .button-up {
+    float: left;
+    width:50%;
+    height: 100vh;
+}
+.display-type03 .button-down {
+    float: right;
+    width:50%;
+    height: 100vh;
+}
 
 
 
