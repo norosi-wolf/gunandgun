@@ -12,6 +12,8 @@ class GunType {
     static SPECIAL = 'SPECIAL';
 };
 
+const LOCAL_STORAGE_KEY = "GAGT_LOCAL_STORAGE_KEY";
+
 const PACKAGE_LIST = [
     {id:1, name:"Nomarl", type:GunPackage.NORMAL, ext:"n"},
     {id:2, name:"Overheat", type:GunPackage.OVERHEAT, ext:"o"},
@@ -59,6 +61,7 @@ var Page = {
     scrollY: 0,
     isScroll: true,
     current: "",
+    timerId: -1,
 };
 
 var NgList = {
@@ -268,6 +271,9 @@ function initializeLifeCounter()
     $('main').css({width:'100vw', margin:'0'});
     $('html').css('overflow-y', 'hidden');
     forbidScroll();
+
+    readStorage();
+    updateViewPlayerScore();
 }
 
 function terminateLifeCounter()
@@ -411,9 +417,9 @@ function addPlayerScore(player, addValue)
             $(`#${player}-life-down`).stop(false, true);
             $(`#${player}-life-down`).animate({opacity:1}, 100).animate({opacity:0}, 300);
         }
-        
+        updateViewPlayerScore();
+        autoSave();
     }
-    updateViewPlayerScore();
 }
 
 function updateViewPlayerScore()
@@ -451,6 +457,7 @@ function resetLifeCounter()
     PlayerDatas.p2.life = 20;
     updateViewPlayerScore();
     closeModal('modal-reset');
+    autoSave();
 }
 
 /**
@@ -539,3 +546,32 @@ function forbidScroll()
     $('html').addClass('no_scroll');
     $('body').addClass('no_scroll');
 };
+
+function autoSave()
+{
+    clearTimeout(Page.timerId);
+    Page.timerId = setTimeout(function(){
+        writeStorage();
+        clearTimeout(Page.timerId);
+    }, 2000);
+}
+
+
+function writeStorage()
+{
+    var data = {
+        'p1Life': PlayerDatas.p1.life,
+        'p2Life': PlayerDatas.p2.life,
+    };
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(data));
+}
+
+function readStorage()
+{
+    var json = localStorage.getItem(LOCAL_STORAGE_KEY);
+    if (json == "") return;
+    
+    var data = JSON.parse(json);
+    PlayerDatas.p1.life = data['p1Life'];
+    PlayerDatas.p2.life = data['p2Life'];
+}
