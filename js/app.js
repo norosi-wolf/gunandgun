@@ -14,9 +14,9 @@ class GunType {
 
 const PACKAGE_LIST = [
     {id:1, name:"Nomarl", type:GunPackage.NORMAL, ext:"n"},
-    {id:2, name:"Overheat", type:GunPackage.OVERHEAT, ext:"oh"},
-    {id:3, name:"W Shout", type:GunPackage.WSHOUT, ext:"ws"},
-    {id:4, name:"ULTRA BOMMY", type:GunPackage.ULTRABOMMY, ext:"ub"},
+    {id:2, name:"Overheat", type:GunPackage.OVERHEAT, ext:"o"},
+    {id:3, name:"W Shout", type:GunPackage.WSHOUT, ext:"w"},
+    {id:4, name:"ULTRA BOMMY", type:GunPackage.ULTRABOMMY, ext:"u"},
 ];
 
 const CHARACTER_LIST = [
@@ -338,7 +338,7 @@ function updatePickup()
         if (i < characterList.length)
         {
             package = getPackageFromType(characterList[i].package);
-            name = characterList[i].name + '-' + package.ext;
+            name = `${characterList[i].name} (${package.ext})`;
         }
         html += `<div class="pickup-charatcer pickup-list-item fadein">${name}</div>`
 
@@ -353,7 +353,7 @@ function updatePickup()
         if (i < nagunLightList.length)
         {
             package = getPackageFromType(nagunLightList[i].package);
-            name = nagunLightList[i].name + '-' + package.ext;
+            name = `${nagunLightList[i].name} (${package.ext})`;
         }
         html += `<div class="pickup-nagun pickup-list-item fadein">${name}</div>`
     }
@@ -366,7 +366,7 @@ function updatePickup()
         if (i < nagunHeavyList.length)
         {
             package = getPackageFromType(nagunHeavyList[i].package);
-            name = nagunHeavyList[i].name + '-' + package.ext;
+            name = `${nagunHeavyList[i].name} (${package.ext})`;
         }
         html += `<div class="pickup-nagun pickup-list-item fadein">${name}</div>`
     }
@@ -379,7 +379,7 @@ function updatePickup()
         if (i < nagunSpecialList.length)
         {
             package = getPackageFromType(nagunSpecialList[i].package);
-            name = nagunSpecialList[i].name + '-' + package.ext;
+            name = `${nagunSpecialList[i].name} (${package.ext})`;
         }
         html += `<div class="pickup-nagun pickup-list-item fadein">${name}</div>`
     }

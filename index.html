@@ -22,6 +22,7 @@
             {
                 navigator.serviceWorker.register('./sw.js').then(registration => {
                     console.log('ServiceWorker registration successful.');
+                    swUpdateVersion();
                 }).catch(err => {
                     console.log('ServiceWorker registration failed.');
                 });
@@ -36,7 +37,7 @@
 
     <div id="box-info" class="box box-info">
         <div class="info">
-            <div id="info-version">version: 1.0.5</div>
+            <div id="info-version">version: 1.0.0</div>
         </div>
     </div>
 
