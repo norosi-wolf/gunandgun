@@ -75,7 +75,8 @@ var PlayerDatas = {
     },
     p2: {
         life: 20
-    }
+    },
+    displayType: 1,
 };
 
 /**
@@ -274,6 +275,7 @@ function initializeLifeCounter()
 
     readStorage();
     updateViewPlayerScore();
+    updateViewScoreDisplayType();
 }
 
 function terminateLifeCounter()
@@ -429,22 +431,30 @@ function updateViewPlayerScore()
 }
 
 function rotateScoreView()
+{   
+    switch (PlayerDatas.displayType)
+    {
+        case 1: PlayerDatas.displayType = 2; break;
+        case 2: PlayerDatas.displayType = 3; break;
+        case 3: PlayerDatas.displayType = 1; break;
+    }
+
+    autoSave();
+    updateViewScoreDisplayType();
+}
+
+function updateViewScoreDisplayType()
 {
     let elm = $('#page-life-counter-innner');
-    if (elm.hasClass('display-type01'))
+    elm.removeClass('display-type01');
+    elm.removeClass('display-type02');
+    elm.removeClass('display-type03');
+
+    switch (PlayerDatas.displayType)
     {
-        elm.removeClass('display-type01');
-        elm.addClass('display-type02');
-    }
-    else if (elm.hasClass('display-type02'))
-    {
-        elm.removeClass('display-type02');
-        elm.addClass('display-type03');
-    }
-    else if (elm.hasClass('display-type03'))
-    {
-        elm.removeClass('display-type03');
-        elm.addClass('display-type01');
+        case 1: elm.addClass('display-type01'); break;
+        case 2: elm.addClass('display-type02'); break;
+        case 3: elm.addClass('display-type03'); break;
     }
 }
 
@@ -562,6 +572,7 @@ function writeStorage()
     var data = {
         'p1Life': PlayerDatas.p1.life,
         'p2Life': PlayerDatas.p2.life,
+        'displayType': PlayerDatas.displayType,
     };
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(data));
 }
@@ -569,9 +580,10 @@ function writeStorage()
 function readStorage()
 {
     var json = localStorage.getItem(LOCAL_STORAGE_KEY);
-    if (json == "") return;
+    if (json == null || json == "") return;
     
     var data = JSON.parse(json);
     PlayerDatas.p1.life = data['p1Life'];
     PlayerDatas.p2.life = data['p2Life'];
+    PlayerDatas.displayType = data['displayType'];
 }
