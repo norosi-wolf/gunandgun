@@ -102,7 +102,7 @@ function viewPage(id)
 
     switch (id)
     {
-        case 'page-pickup': initializepickup(); break;
+        case 'page-pickup': initializePickup(); break;
         case 'page-life-counter': initializeLifeCounter(); break;
     }
     
@@ -242,7 +242,7 @@ function saveSetting()
 /**
  * 
  */
-function initializepickup()
+function initializePickup()
 {
     let html = "";
     for (let i = 0; i < 4; i++)
@@ -266,6 +266,7 @@ function initializeLifeCounter()
 {
     $('#box-info').hide();
     $('main').css({width:'100vw', margin:'0'});
+    forbidScroll();
 }
 
 function terminateLifeCounter()
@@ -274,12 +275,13 @@ function terminateLifeCounter()
     $('#box-info').show();
     $('#page-life-counter').hide();
     $('main').css({width:'95vw', marginTop:'1%', marginRight:'-50%'});
+    allowScroll();
 }
 
 /**
  * 
  */
-function updatepickup()
+function updatePickup()
 {
     let html = "";
     html += '<div class="pickup-charatcer pickup-list-item">-----</div>';
