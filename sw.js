@@ -1,5 +1,5 @@
 
-var SW_VERSION = '1.0.6';
+var SW_VERSION = '1.0.7';
 
 // ServiceWorker処理：https://developers.google.com/web/fundamentals/primers/service-workers/?hl=ja
 // キャッシュ名とキャッシュファイルの指定
@@ -20,11 +20,6 @@ var urlsToCache = [
     '/gunnagun/img/icon_192x192.png',
     '/gunnagun/img/icon_512x512.png',
 ];
-
-function swUpdateVersion()
-{
-    document.getElementById('info-version').innerHTML = `version: ${SW_VERSION}`;
-}
 
 // インストール処理
 self.addEventListener('install', function(event) {
