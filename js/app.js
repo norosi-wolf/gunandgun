@@ -102,7 +102,7 @@ function viewPage(id)
 
     switch (id)
     {
-        case 'page-lottery': initializeLottery(); break;
+        case 'page-pickup': initializepickup(); break;
         case 'page-life-counter': initializeLifeCounter(); break;
     }
     
@@ -242,24 +242,24 @@ function saveSetting()
 /**
  * 
  */
-function initializeLottery()
+function initializepickup()
 {
     let html = "";
     for (let i = 0; i < 4; i++)
     {
-        html += `<div class="lottery-charatcer lottery-list-item">-----</div>`
+        html += `<div class="pickup-charatcer pickup-list-item">-----</div>`
         if (i % 2 == 1) html += "<br />";
     }
-    $('#lottery-charatcer-list').html(html);
+    $('#pickup-charatcer-list').html(html);
 
     html = "";
     for (let i = 0; i < 2; i++)
     {
-        html += `<div class="lottery-nagun lottery-list-item">-----</div>`
+        html += `<div class="pickup-nagun pickup-list-item">-----</div>`
     }
-    $('#lottery-light').html(html);
-    $('#lottery-heavy').html(html);
-    $('#lottery-special').html(html);
+    $('#pickup-light').html(html);
+    $('#pickup-heavy').html(html);
+    $('#pickup-special').html(html);
 }
 
 function initializeLifeCounter()
@@ -279,21 +279,21 @@ function terminateLifeCounter()
 /**
  * 
  */
-function updateLottery()
+function updatepickup()
 {
     let html = "";
-    html += '<div class="lottery-charatcer lottery-list-item">-----</div>';
-    html += '<div class="lottery-charatcer lottery-list-item">-----</div><br />';
-    html += '<div class="lottery-charatcer lottery-list-item">-----</div>';
-    html += '<div class="lottery-charatcer lottery-list-item">-----</div><br />';
-    $('#lottery-charatcer-list').html(html);
+    html += '<div class="pickup-charatcer pickup-list-item">-----</div>';
+    html += '<div class="pickup-charatcer pickup-list-item">-----</div><br />';
+    html += '<div class="pickup-charatcer pickup-list-item">-----</div>';
+    html += '<div class="pickup-charatcer pickup-list-item">-----</div><br />';
+    $('#pickup-charatcer-list').html(html);
 
     html = "";
-    html += '<div class="lottery-nagun lottery-list-item">-----</div>';
-    html += '<div class="lottery-nagun lottery-list-item">-----</div>';
-    $('#lottery-light').html();
-    $('#lottery-heavy').html(html);
-    $('#lottery-special').html(html);
+    html += '<div class="pickup-nagun pickup-list-item">-----</div>';
+    html += '<div class="pickup-nagun pickup-list-item">-----</div>';
+    $('#pickup-light').html();
+    $('#pickup-heavy').html(html);
+    $('#pickup-special').html(html);
 
     let characterList = [];
     let nagunLightList = [];
@@ -336,11 +336,11 @@ function updateLottery()
             package = getPackageFromType(characterList[i].package);
             name = characterList[i].name + '-' + package.ext;
         }
-        html += `<div class="lottery-charatcer lottery-list-item fadein">${name}</div>`
+        html += `<div class="pickup-charatcer pickup-list-item fadein">${name}</div>`
 
         if (i % 2 == 1) html += "<br />";
     }
-    $('#lottery-charatcer-list').html(html);
+    $('#pickup-charatcer-list').html(html);
 
     html = "";
     for (let i = 0; i < 2; i++)
@@ -351,9 +351,9 @@ function updateLottery()
             package = getPackageFromType(nagunLightList[i].package);
             name = nagunLightList[i].name + '-' + package.ext;
         }
-        html += `<div class="lottery-nagun lottery-list-item fadein">${name}</div>`
+        html += `<div class="pickup-nagun pickup-list-item fadein">${name}</div>`
     }
-    $('#lottery-light').html(html);
+    $('#pickup-light').html(html);
     
     html = "";
     for (let i = 0; i < 2; i++)
@@ -364,9 +364,9 @@ function updateLottery()
             package = getPackageFromType(nagunHeavyList[i].package);
             name = nagunHeavyList[i].name + '-' + package.ext;
         }
-        html += `<div class="lottery-nagun lottery-list-item fadein">${name}</div>`
+        html += `<div class="pickup-nagun pickup-list-item fadein">${name}</div>`
     }
-    $('#lottery-heavy').html(html);
+    $('#pickup-heavy').html(html);
     
     html = "";
     for (let i = 0; i < 2; i++)
@@ -377,12 +377,12 @@ function updateLottery()
             package = getPackageFromType(nagunSpecialList[i].package);
             name = nagunSpecialList[i].name + '-' + package.ext;
         }
-        html += `<div class="lottery-nagun lottery-list-item fadein">${name}</div>`
+        html += `<div class="pickup-nagun pickup-list-item fadein">${name}</div>`
     }
-    $('#lottery-special').html(html);
+    $('#pickup-special').html(html);
 
     // 
-    let list = $('.lottery-list-item');
+    let list = $('.pickup-list-item');
     for (let i = 0; i < list.length; i++)
     {
         $(list[i]).delay((i + 1) * 250).queue(function(){

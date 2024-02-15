@@ -263,10 +263,10 @@ input[type="checkbox"] {
     margin-right: 2vw;
 }
 
-.lottery-list {
+.pickup-list {
     font-size: 5vw;
 }
-.lottery-list-item {
+.pickup-list-item {
     display: inline-block;
     width: 35vw;
     border-bottom: 0.2vw solid #707070;
@@ -276,7 +276,7 @@ input[type="checkbox"] {
     margin-right: 2vw;
 }
 
-.lottery-nagun-title, .setting-nagun-title{
+.pickup-nagun-title, .setting-nagun-title{
     font-size: 6vw;
     color: #707070;
     font-weight: bold;
@@ -288,7 +288,7 @@ input[type="checkbox"] {
     margin-top: 4vw;
     margin-bottom: 2vw;
 }
-.content-setting, .content-lottery {
+.content-setting, .content-pickup {
     padding-bottom: 7vw;
 }
 
