@@ -71,10 +71,10 @@ var NgList = {
 
 var PlayerDatas = {
     p1: {
-        life: 20
+        life: 30
     },
     p2: {
-        life: 20
+        life: 30
     },
     displayType: 1,
 };
@@ -465,8 +465,8 @@ function updateViewScoreDisplayType()
  */
 function resetLifeCounter()
 {
-    PlayerDatas.p1.life = 20;
-    PlayerDatas.p2.life = 20;
+    PlayerDatas.p1.life = 30;
+    PlayerDatas.p2.life = 30;
     updateViewPlayerScore();
     closeModal('modal-reset');
     autoSave();
