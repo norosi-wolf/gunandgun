@@ -409,6 +409,8 @@ function addPlayerScore(player, addValue)
     if (player in PlayerDatas)
     {
         PlayerDatas[player].life += addValue;
+        if (99 < PlayerDatas[player].life) PlayerDatas[player].life = 99;
+        if (PlayerDatas[player].life < 0) PlayerDatas[player].life = 0;
         if (addValue > 0)
         {
             $(`#${player}-life-up`).stop(false, true);
