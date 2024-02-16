@@ -1,5 +1,5 @@
 
-var SW_VERSION = '1.0.10';
+var SW_VERSION = '1.0.11';
 
 // ServiceWorker処理：https://developers.google.com/web/fundamentals/primers/service-workers/?hl=ja
 // キャッシュ名とキャッシュファイルの指定
@@ -17,7 +17,13 @@ var urlsToCache = [
     '/gunnagun/webfonts/fa-solid-900.ttf',
     '/gunnagun/webfonts/fa-solid-900.woff2',
     '/gunnagun/webfonts/RocknRollOne-Regular.ttf',
+    '/gunnagun/img/icon_72x72.png',
+    '/gunnagun/img/icon_96x96.png',
+    '/gunnagun/img/icon_128x128.png',
+    '/gunnagun/img/icon_144x144.png',
+    '/gunnagun/img/icon_152x152.png',
     '/gunnagun/img/icon_192x192.png',
+    '/gunnagun/img/icon_384x384.png',
     '/gunnagun/img/icon_512x512.png',
 ];
 
