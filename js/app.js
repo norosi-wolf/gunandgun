@@ -1,5 +1,5 @@
 
-var APP_VERSDION = "1.0.18";
+var APP_VERSDION = "1.0.19";
 
 
 class GunPackage {
@@ -631,9 +631,6 @@ function readStorage()
 
 function alertFoundUpdate()
 {
-    // ボタンの変更処理
-    $('#btn-update-pwa-app').hide();
-
     // registration.unregister();  // 効果が疑わしいので保留
     alert('更新がみつかりました\nアプリを再起動してください');
 }
@@ -644,18 +641,20 @@ function alertFoundUpdate()
  */
 function updatePwaApp()
 {
+    $('#btn-update-pwa-app').hide();
     if (!('serviceWorker' in navigator))
     {
+        $('#btn-update-pwa-app').show();
         return;
     }
 
     if (!navigator.onLine)
     {
         alert('オフラインです');
+        $('#btn-update-pwa-app').show();
         return;
     }
 
-    $('#btn-update-pwa-app').hide();
     navigator.serviceWorker.getRegistration().then(registration => {
         if (registration.waiting != null)
         {
