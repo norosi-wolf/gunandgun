@@ -1,5 +1,5 @@
 
-var APP_VERSDION = "1.0.16";
+var APP_VERSDION = "1.0.17";
 
 
 class GunPackage {
@@ -646,6 +646,12 @@ function updatePwaApp()
 {
     if (!('serviceWorker' in navigator))
     {
+        return;
+    }
+
+    if (!navigator.onLine)
+    {
+        alert('オフラインです');
         return;
     }
 
