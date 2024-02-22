@@ -220,6 +220,9 @@ main {
     height: 10vw;
 }
 
+#btn-update-pwa-app {
+    margin-top: 6vh;
+}
 
 
 #box-setting {

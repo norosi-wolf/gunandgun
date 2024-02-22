@@ -1,5 +1,5 @@
 
-var SW_VERSION = '1.0.12';
+var SW_VERSION = '1.0.15';
 
 // ServiceWorker処理：https://developers.google.com/web/fundamentals/primers/service-workers/?hl=ja
 // キャッシュ名とキャッシュファイルの指定
@@ -27,6 +27,10 @@ var urlsToCache = [
     '/gunnagun/img/icon_512x512.png',
 ];
 
+const CACHE_KEYS = [
+    CACHE_NAME
+];
+
 // インストール処理
 self.addEventListener('install', function(event) {
     event.waitUntil(
@@ -46,5 +50,22 @@ self.addEventListener('fetch', function(event) {
             .then(function(response) {
                 return response ? response : fetch(event.request);
             })
+    );
+});
+
+// 前バージョンの不要なキャッシュを削除
+self.addEventListener('activate', event => {
+    event.waitUntil(
+      caches
+        .keys()
+        .then(keys => {
+            return Promise.all(
+                keys.filter(key => {
+                    return !CACHE_KEYS.includes(key);
+                }).map(key => {
+                    return caches.delete(key);
+                })
+            );
+        })
     );
 });

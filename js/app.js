@@ -1,4 +1,7 @@
 
+var APP_VERSDION = "1.0.15";
+
+
 class GunPackage {
     static NORMAL = 'NORMAL';
     static OVERHEAT = 'OVERHEAT';
@@ -85,6 +88,7 @@ var PlayerDatas = {
 function initialize(firstPage)
 {
     createSetting();
+    $("#info-version").text("version: " + APP_VERSDION);
     viewPage(firstPage);
 };
 
@@ -588,4 +592,51 @@ function readStorage()
     PlayerDatas.p1.life = data['p1Life'];
     PlayerDatas.p2.life = data['p2Life'];
     PlayerDatas.displayType = data['displayType'];
+}
+
+
+function alertFoundUpdate()
+{
+    // ボタンの変更処理
+    $('#btn-update-pwa-app').hide();
+
+    // registration.unregister();  // 効果が疑わしいので保留
+    alert('更新がみつかりました\nアプリを再起動してください');
+}
+
+
+/**
+ * 
+ */
+function updatePwaApp()
+{
+    if (!('serviceWorker' in navigator))
+    {
+        return;
+    }
+
+    navigator.serviceWorker.getRegistration().then(registration => {
+        if (registration.waiting != null)
+        {
+            alertFoundUpdate();
+        }
+        else
+        {
+            registration.update().then(registration => {
+                if (registration.installing != null)
+                {
+                    registration.installing.onstatechange = e => {
+                        if (e.target.state == 'installed')
+                        {
+                            alertFoundUpdate();
+                        }
+                    }
+                }
+                else
+                {
+                    alert('更新は見つかりませんでした');
+                }
+            });
+        }
+    });
 }
