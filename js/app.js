@@ -1,5 +1,5 @@
 
-var APP_VERSDION = "1.0.19";
+var APP_VERSDION = "1.0.20";
 
 
 class GunPackage {
@@ -639,21 +639,27 @@ function alertFoundUpdate()
 /**
  * 
  */
+let isUpdateCheck = false;
 function updatePwaApp()
 {
-    $('#btn-update-pwa-app').hide();
+    if (isUpdateCheck)
+    {
+        return;
+    }
+    isUpdateCheck = true;
+
     if (!('serviceWorker' in navigator))
     {
-        $('#btn-update-pwa-app').show();
         return;
     }
 
     if (!navigator.onLine)
     {
         alert('オフラインです');
-        $('#btn-update-pwa-app').show();
         return;
     }
+
+    $('#btn-update-pwa-app').hide();
 
     navigator.serviceWorker.getRegistration().then(registration => {
         if (registration.waiting != null)
@@ -676,6 +682,7 @@ function updatePwaApp()
                 {
                     $('#btn-update-pwa-app').show();
                     alert('更新は見つかりませんでした');
+                    isUpdateCheck = false;
                 }
             });
         }
