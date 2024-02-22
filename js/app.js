@@ -1,5 +1,5 @@
 
-var APP_VERSDION = "1.0.23";
+var APP_VERSDION = "1.0.24";
 
 
 class GunPackage {
