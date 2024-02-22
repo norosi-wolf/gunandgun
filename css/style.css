@@ -387,6 +387,7 @@ input[type="checkbox"] {
     color: rgb(255, 78, 78);
 }
 
+
 .display-type01 .life-top {
     position:relative;
     transform-origin:50% 50% 0;
@@ -690,6 +691,38 @@ input[type="checkbox"] {
 .display-type03 .bg-burn {
     padding-top: 3vh;
 }
+
+
+#icon-save {
+    color: rgb(255, 255, 255);
+    opacity: 0;
+    position:absolute;
+    pointer-events: none;
+    transform-origin:50% 50% 0;
+}
+.display-type01 #icon-save
+{
+    bottom: 1vh;
+    right: 3vw;
+    font-size: 10vh;
+}
+.display-type02 #icon-save
+{
+    left: 2vw;
+    bottom: -2vh;
+    font-size: 10vh;
+    transform:rotate(90deg);
+}
+.display-type03 #icon-save
+{
+    right: 2vw;
+    bottom: -1vh;
+    font-size: 10vh;
+}
+
+
+
+
 
 
 .info {

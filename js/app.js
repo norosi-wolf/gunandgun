@@ -595,8 +595,10 @@ function autoSave()
 {
     clearTimeout(Page.timerId);
     Page.timerId = setTimeout(function(){
-        writeStorage();
         clearTimeout(Page.timerId);
+        writeStorage();
+        $('#icon-save').stop(false, true);
+        $('#icon-save').animate({opacity:1}, 500).animate({opacity:0}, 800);
     }, 2000);
 }
 
