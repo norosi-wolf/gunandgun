@@ -1,5 +1,5 @@
 
-var APP_VERSDION = "1.0.17";
+var APP_VERSDION = "1.0.18";
 
 
 class GunPackage {
@@ -655,6 +655,7 @@ function updatePwaApp()
         return;
     }
 
+    $('#btn-update-pwa-app').hide();
     navigator.serviceWorker.getRegistration().then(registration => {
         if (registration.waiting != null)
         {
@@ -674,6 +675,7 @@ function updatePwaApp()
                 }
                 else
                 {
+                    $('#btn-update-pwa-app').show();
                     alert('更新は見つかりませんでした');
                 }
             });
