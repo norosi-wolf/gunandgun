@@ -74,10 +74,12 @@ var NgList = {
 
 var PlayerDatas = {
     p1: {
-        life: 30
+        life: 30,
+        burn: 0
     },
     p2: {
-        life: 30
+        life: 30,
+        burn: 0
     },
     displayType: 1,
 };
@@ -278,7 +280,7 @@ function initializeLifeCounter()
     forbidScroll();
 
     readStorage();
-    updateViewPlayerScore();
+    updateViewPlayerStatus();
     updateViewScoreDisplayType();
 }
 
@@ -425,15 +427,39 @@ function addPlayerScore(player, addValue)
             $(`#${player}-life-down`).stop(false, true);
             $(`#${player}-life-down`).animate({opacity:1}, 100).animate({opacity:0}, 300);
         }
-        updateViewPlayerScore();
+        updateViewPlayerStatus();
         autoSave();
     }
 }
 
-function updateViewPlayerScore()
+function addPlayerBurn(player, addValue)
+{
+    if (player in PlayerDatas)
+    {
+        PlayerDatas[player].burn += addValue;
+        if (99 < PlayerDatas[player].burn) PlayerDatas[player].burn = 99;
+        if (PlayerDatas[player].burn < 0) PlayerDatas[player].burn = 0;
+        if (addValue > 0)
+        {
+            $(`#${player}-burn-up`).stop(false, true);
+            $(`#${player}-burn-up`).animate({opacity:1}, 100).animate({opacity:0}, 300);
+        }
+        else
+        {
+            $(`#${player}-burn-down`).stop(false, true);
+            $(`#${player}-burn-down`).animate({opacity:1}, 100).animate({opacity:0}, 300);
+        }
+        updateViewPlayerStatus();
+        autoSave();
+    }
+}
+
+function updateViewPlayerStatus()
 {
     $('#p1-life a').text(PlayerDatas.p1.life);
     $('#p2-life a').text(PlayerDatas.p2.life);
+    $('#p1-burn a').text(PlayerDatas.p1.burn);
+    $('#p2-burn a').text(PlayerDatas.p2.burn);
 }
 
 function rotateScoreView()
@@ -471,7 +497,9 @@ function resetLifeCounter()
 {
     PlayerDatas.p1.life = 30;
     PlayerDatas.p2.life = 30;
-    updateViewPlayerScore();
+    PlayerDatas.p1.burn = 0;
+    PlayerDatas.p2.burn = 0;
+    updateViewPlayerStatus();
     closeModal('modal-reset');
     autoSave();
 }
@@ -578,6 +606,8 @@ function writeStorage()
     var data = {
         'p1Life': PlayerDatas.p1.life,
         'p2Life': PlayerDatas.p2.life,
+        'p1Burn': PlayerDatas.p1.burn,
+        'p2Burn': PlayerDatas.p2.burn,
         'displayType': PlayerDatas.displayType,
     };
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(data));
@@ -591,6 +621,8 @@ function readStorage()
     var data = JSON.parse(json);
     PlayerDatas.p1.life = data['p1Life'];
     PlayerDatas.p2.life = data['p2Life'];
+    PlayerDatas.p1.burn = data['p1Burn'];
+    PlayerDatas.p2.burn = data['p2Burn'];
     PlayerDatas.displayType = data['displayType'];
 }
 

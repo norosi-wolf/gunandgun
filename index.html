@@ -187,11 +187,21 @@
     <!-- page-life-counter -->
     <div id="page-life-counter" style="display: none;">
         <div id="page-life-counter-innner" class="display-type01">
-            <div class="life-top">
-                <div id="p1-life" class="life-count"><a>20</a></div>
-                <div class="life-buttons">
-                    <a href="javascript:addPlayerScore('p1', 1)"><div id="p1-life-up" class="button-up"></div></a>
-                    <a href="javascript:addPlayerScore('p1', -1)"><div id="p1-life-down" class="button-down"></div></a>
+            <div class="state-p1">
+                <div class="life-top">
+                    <div id="p1-life" class="life-count"><a>20</a></div>
+                    <div class="life-buttons">
+                        <a href="javascript:addPlayerScore('p1', 1)"><div id="p1-life-up" class="button-up"></div></a>
+                        <a href="javascript:addPlayerScore('p1', -1)"><div id="p1-life-down" class="button-down"></div></a>
+                    </div>
+                </div>
+                <div class="burn-top">
+                    <i class="fa-solid fa-fire-flame-curved bg-burn"></i>
+                    <div id="p1-burn" class="burn-count"><a>00</a></div>
+                    <div class="life-buttons">
+                        <a href="javascript:addPlayerBurn('p1', 1)"><div id="p1-burn-up" class="button-up"></div></a>
+                        <a href="javascript:addPlayerBurn('p1', -1)"><div id="p1-burn-down" class="button-down"></div></a>
+                    </div>
                 </div>
             </div>
             <div class="life-middle">
@@ -199,11 +209,21 @@
                 <a href="javascript:rotateScoreView()"><div class="button-life-menu"><i class="fa-solid fa-rotate"></i></div></a>
                 <a href="javascript:openModal('modal-reset')"><div class="button-life-menu"><i class="fa-solid fa-hand-point-up"></i></div></a>
             </div>
-            <div class="life-bottom">
-                <div id="p2-life" class="life-count"><a>20</a></div>
-                <div class="life-buttons">
-                    <a href="javascript:addPlayerScore('p2', 1)"><div id="p2-life-up" class="button-up"></div></a>
-                    <a href="javascript:addPlayerScore('p2', -1)"><div id="p2-life-down" class="button-down"></div></a>
+            <div class="state-p2">
+                <div class="life-bottom">
+                    <div id="p2-life" class="life-count"><a>20</a></div>
+                    <div class="life-buttons">
+                        <a href="javascript:addPlayerScore('p2', 1)"><div id="p2-life-up" class="button-up"></div></a>
+                        <a href="javascript:addPlayerScore('p2', -1)"><div id="p2-life-down" class="button-down"></div></a>
+                    </div>
+                </div>
+                <div class="burn-bottom">
+                    <i class="fa-solid fa-fire-flame-curved bg-burn"></i>
+                    <div id="p2-burn" class="burn-count"><a>00</a></div>
+                    <div class="life-buttons">
+                        <a href="javascript:addPlayerBurn('p2', 1)"><div id="p2-burn-up" class="button-up"></div></a>
+                        <a href="javascript:addPlayerBurn('p2', -1)"><div id="p2-burn-down" class="button-down"></div></a>
+                    </div>
                 </div>
             </div>
         </div>
