@@ -511,6 +511,7 @@ input[type="checkbox"] {
     transform-origin:50% 50% 0;
     transform:rotate(90deg);
     pointer-events: none;
+    white-space:nowrap;
 }
 .display-type02 .burn-count a {
     padding-left: 30vh;
@@ -581,6 +582,7 @@ input[type="checkbox"] {
 .display-type03 .life-count a {
     width: 100%;
     font-size: 10vw;
+    white-space:nowrap;
 }
 .display-type03 .button-life-menu {
     width: 10vw;
@@ -662,18 +664,18 @@ input[type="checkbox"] {
 
 .display-type02 .burn-count {
     top: 2vh;
-    left: -10vw;
+    right: 0vw;
 }
 .display-type02 .burn-count a {
     margin: 0;
     width: 45vw;
     height: 11vh;
-    font-size: 12vh;
+    font-size: 11vh;
     white-space:nowrap;
 }
 .display-type02 .bg-burn {
-    margin-top: 15vh;
-    font-size: 15vh;
+    margin-top: 18vh;
+    font-size: 10vh;
     transform-origin:50% 50% 0;
     transform:rotate(90deg);
 }
