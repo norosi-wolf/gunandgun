@@ -1,5 +1,5 @@
 
-var APP_VERSDION = "1.0.22";
+var APP_VERSDION = "1.0.23";
 
 
 class GunPackage {
@@ -629,13 +629,6 @@ function readStorage()
 }
 
 
-function alertFoundUpdate()
-{
-    // registration.unregister();  // 効果が疑わしいので保留
-    alert('更新がみつかりました\nアプリを再起動してください');
-}
-
-
 /**
  * 
  */
@@ -664,7 +657,8 @@ function updatePwaApp()
     navigator.serviceWorker.getRegistration().then(registration => {
         if (registration.waiting != null)
         {
-            alertFoundUpdate();
+            registration.unregister();
+            alert('更新がみつかりました\nアプリを再起動してください');
         }
         else
         {
@@ -674,7 +668,8 @@ function updatePwaApp()
                     registration.installing.onstatechange = e => {
                         if (e.target.state == 'installed')
                         {
-                            alertFoundUpdate();
+                            registration.unregister();
+                            alert('更新がみつかりました\nアプリを再起動してください');
                         }
                     }
                 }
