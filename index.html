@@ -50,8 +50,9 @@
                 <div class="content-inner">
                     <div class="center"><a href="javascript:viewPage('page-setting')" class="content-event-button">Setting</a></div>
                     <div class="center"><a href="javascript:viewPage('page-pickup')" class="content-event-button">Pick Up</a></div>
-                    <div class="center"><a href="javascript:viewPage('page-life-counter')" class="content-event-button">Life Counter</a></div>
+                    <!--<div class="center"><a href="javascript:viewPage('page-life-counter')" class="content-event-button">Life Counter</a></div>-->
                     <!--<div class="center" id="btn-update-pwa-app"><a href="javascript:updatePwaApp()" class="content-event-button">Check<br />Update</a></div>-->
+                    <div class="center"><a href="javascript:openModal('modal-lifecounter')" class="content-event-button">Life Counter</a></div>
                 </div>
             </div>
         </div>
@@ -176,15 +177,13 @@
                         <a href="javascript:viewPage('page-menu')" class="content-event-button">Menu</a>
                         <a href="javascript:viewPage('page-setting')" class="content-event-button">Setting</a>
                     </div>
-                    <div class="center">
-                        <a href="javascript:viewPage('page-life-counter')" class="content-event-button">Life Counter</a>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- page-life-counter -->
+     <!--
     <div id="page-life-counter" style="display: none;">
         <div id="page-life-counter-innner" class="display-type01">
             <div class="state-p1">
@@ -230,8 +229,43 @@
             <div id="icon-save"><i class="fa-solid fa-floppy-disk"></i></div>
         </div>
     </div>
+    -->
 
 </main>
+
+
+
+<div class="modal-overlay" id="modal-lifecounter" style="display: none;">
+    <div id="page-life-counter" style="display: none;"></div>
+        <div id="page-life-counter-innner" class="display-type01">
+            <div class="state-p1">
+                <div class="life-top">
+                    <div id="p1-life" class="life-count"><a>20</a></div>
+                    <div class="life-buttons">
+                        <a href="javascript:addPlayerScore('p1', 1)"><div id="p1-life-up" class="button-up"></div></a>
+                        <a href="javascript:addPlayerScore('p1', -1)"><div id="p1-life-down" class="button-down"></div></a>
+                    </div>
+                </div>
+            </div>
+            <div class="life-middle">
+                <a href="javascript:openModal('modal-close')"><div class="button-life-menu"><i class="fa-solid fa-power-off"></i></div></a>
+                <a href="javascript:rotateScoreView()"><div class="button-life-menu"><i class="fa-solid fa-rotate"></i></div></a>
+                <a href="javascript:openModal('modal-reset')"><div class="button-life-menu"><i class="fa-solid fa-hand-point-up"></i></div></a>
+            </div>
+            <div class="state-p2">
+                <div class="life-bottom">
+                    <div id="p2-life" class="life-count"><a>20</a></div>
+                    <div class="life-buttons">
+                        <a href="javascript:addPlayerScore('p2', 1)"><div id="p2-life-up" class="button-up"></div></a>
+                        <a href="javascript:addPlayerScore('p2', -1)"><div id="p2-life-down" class="button-down"></div></a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="icon-save"><i class="fa-solid fa-floppy-disk"></i></div>
+        </div>
+    </div>
+</div>
 
 
 <div class="modal-overlay" id="modal-reset" style="display: none;">
@@ -273,7 +307,7 @@
             <div class="content-single">
                 <div class="content-inner">
                     <div class="center">
-                        <a href="javascript:javascript:viewPage('page-menu')" class="content-event-button" id="submitReset">CLOSE</a>
+                        <a href="javascript:javascript:closeLifeCounterModal()" class="content-event-button" id="submitReset">CLOSE</a>
                         <a href="javascript:closeModal('modal-close')" class="content-event-button">CANCEL</a>
                     </div>
                 </div>

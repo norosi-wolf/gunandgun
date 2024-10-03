@@ -1,5 +1,5 @@
 
-var APP_VERSDION = "1.0.25";
+var APP_VERSDION = "1.0.26";
 
 
 class GunPackage {
@@ -567,6 +567,12 @@ function closeModal(id)
     $(`#${id}`).hide();
     $('html').css('overflow-y', '');
     allowScroll();
+};
+
+function closeLifeCounterModal()
+{
+    closeModal('modal-lifecounter');
+    closeModal('modal-close');
 };
 
 /**
