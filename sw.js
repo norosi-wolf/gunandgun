@@ -3,28 +3,28 @@ var SW_VERSION = '1.0.26';
 
 // ServiceWorker処理：https://developers.google.com/web/fundamentals/primers/service-workers/?hl=ja
 // キャッシュ名とキャッシュファイルの指定
-var CACHE_NAME = `pwa-gunnagun-caches ${SW_VERSION}`;
+var CACHE_NAME = `pwa-gunandgun-tool-caches;
 var urlsToCache = [
-    '/gunnagun/',
-    '/gunnagun/index.html',
-    '/gunnagun/sw.js',
-    '/gunnagun/manifest.json',
-    '/gunnagun/js/app.js',
-    '/gunnagun/js/jquery-3.7.1.min.js',
-    '/gunnagun/css/all.min.css',
-    '/gunnagun/css/sanitize.css',
-    '/gunnagun/css/style.css',
-    '/gunnagun/webfonts/fa-solid-900.ttf',
-    '/gunnagun/webfonts/fa-solid-900.woff2',
-    '/gunnagun/webfonts/RocknRollOne-Regular.ttf',
-    '/gunnagun/img/icon_72x72.png',
-    '/gunnagun/img/icon_96x96.png',
-    '/gunnagun/img/icon_128x128.png',
-    '/gunnagun/img/icon_144x144.png',
-    '/gunnagun/img/icon_152x152.png',
-    '/gunnagun/img/icon_192x192.png',
-    '/gunnagun/img/icon_384x384.png',
-    '/gunnagun/img/icon_512x512.png',
+    '/gunandgun/',
+    '/gunandgun/index.html',
+    '/gunandgun/sw.js',
+    '/gunandgun/manifest.json',
+    '/gunandgun/js/app.js',
+    '/gunandgun/js/jquery-3.7.1.min.js',
+    '/gunandgun/css/all.min.css',
+    '/gunandgun/css/sanitize.css',
+    '/gunandgun/css/style.css',
+    '/gunandgun/webfonts/fa-solid-900.ttf',
+    '/gunandgun/webfonts/fa-solid-900.woff2',
+    '/gunandgun/webfonts/RocknRollOne-Regular.ttf',
+    '/gunandgun/img/icon_72x72.png',
+    '/gunandgun/img/icon_96x96.png',
+    '/gunandgun/img/icon_128x128.png',
+    '/gunandgun/img/icon_144x144.png',
+    '/gunandgun/img/icon_152x152.png',
+    '/gunandgun/img/icon_192x192.png',
+    '/gunandgun/img/icon_384x384.png',
+    '/gunandgun/img/icon_512x512.png',
 ];
 
 const CACHE_KEYS = [
